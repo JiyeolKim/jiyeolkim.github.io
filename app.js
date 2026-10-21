@@ -3,6 +3,7 @@
 const projects = {
   vehicle: {
     category: '01 / COMPUTER VISION',
+    media: {src:'assets/vehicle-ir-result.jpg', width:960, height:540, alt:'IR 도로 영상에 차량의 3D 검출 박스가 표시된 실행 화면', label:'실행 결과', caption:'IR 카메라 입력에서 실행한 3D 차량 검출·추적 시스템 화면입니다.'},
     title: 'RGB·IR 영상 기반 3D 차량 검출·추적 시스템',
     intro: 'IR 카메라 적용을 목표로 검출 모델을 교체하고, 모델 학습부터 추적 시스템 연동까지 전체 시스템의 구성과 개발을 단독으로 담당했습니다.',
     role: '전체 시스템 구성·개발 단독 담당',
@@ -16,6 +17,7 @@ const projects = {
   },
   eye: {
     category: '02 / VISION APPLICATION',
+    media: {src:'assets/eye-training-batch.jpg', width:768, height:768, alt:'눈 영역과 라벨 박스가 표시된 YOLO 학습 배치 시각화', label:'학습 배치', caption:'YOLO 학습 배치 시각화입니다. 최종 검출 결과나 정확도 지표를 나타내는 이미지는 아닙니다.'},
     title: '눈 인식 및 트래킹',
     intro: '눈 영역을 인식하고 추적하는 기능을 개발했습니다. 데이터 수집·라벨링부터 모델 학습과 애플리케이션 적용까지 직접 수행했습니다.',
     role: '데이터 구축·모델 학습·트래킹 및 앱 적용',
@@ -28,6 +30,7 @@ const projects = {
   },
   rppg: {
     category: '03 / BIOSIGNAL AI',
+    media: {src:'assets/rppg-model-demo.png', width:1920, height:1080, alt:'같은 얼굴 영상 입력에 대한 PhysNet, RhythmFormer, RhythmMamba의 BPM과 파형을 비교하는 화면', label:'모델 비교 시연', caption:'모델 3종의 BPM·파형을 비교하는 시연 화면입니다. 기준 심박계 미연결 상태로, 정확도 평가 결과는 아닙니다.'},
     title: 'rPPG 기반 심박 추정',
     intro: '휴대전화 카메라로 촬영한 얼굴 영상에서 심박수를 추정하는 기능을 개발했습니다. 짧은 촬영 구간의 추정 성능과 모바일 환경의 실행 조건을 함께 검토했습니다.',
     role: '모델 비교·모바일 추론 연동·테스트',
@@ -81,6 +84,37 @@ function openProject(id, trigger) {
   body.replaceChildren();
   if (project.role) {
     const role = document.createElement('div'); role.className = 'dialog-role'; role.textContent = '↳ ' + project.role; body.append(role);
+  }
+  if (project.media) {
+    const media = project.media;
+    const figure = document.createElement('figure');
+    figure.className = 'project-media detail-media';
+    const link = document.createElement('a');
+    link.className = 'media-frame';
+    link.href = media.src;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.setAttribute('aria-label', media.label + ' 이미지 원본 크게 보기');
+    const img = document.createElement('img');
+    img.src = media.src;
+    img.alt = media.alt;
+    img.width = media.width;
+    img.height = media.height;
+    img.decoding = 'async';
+    const zoom = document.createElement('span');
+    zoom.className = 'media-zoom';
+    zoom.textContent = '크게 보기 ↗';
+    zoom.setAttribute('aria-hidden', 'true');
+    link.append(img, zoom);
+    const caption = document.createElement('figcaption');
+    const label = document.createElement('span');
+    label.className = 'media-label';
+    label.textContent = media.label;
+    const note = document.createElement('span');
+    note.textContent = media.caption;
+    caption.append(label, note);
+    figure.append(link, caption);
+    body.append(figure);
   }
   body.append(section('해결할 문제', paragraph(project.purpose)), section('접근 방법', paragraph(project.approach)), section('구현 결과', paragraph(project.result)));
   const list = document.createElement('ul');

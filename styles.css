@@ -51,3 +51,29 @@
 @media(max-width:800px){.about-section{gap:28px;grid-template-columns:.8fr 1.2fr}.about-heading h2{font-size:24px}.about-copy p{font-size:13px}.project-summary>div{gap:9px;grid-template-columns:26px 1fr}.project-summary dd{font-size:12px}.supporting-experience{grid-template-columns:1fr;gap:9px}.skill-context{font-size:10px}.profile-links h2{font-size:25px}}
 @media(max-width:620px){.about-section{grid-template-columns:1fr;gap:20px;padding-top:31px;padding-bottom:22px}.about-heading h2{font-size:25px}.about-heading h2 br{display:none}.about-heading .eyebrow{font-size:8px;margin-bottom:10px}.about-copy p{font-size:13px}.career-direction{font-size:11px;line-height:1.8;align-items:flex-start}.career-direction i{margin-top:7px}.project-summary{gap:12px}.project-summary dt{font-size:10px}.project-summary dd{font-size:12px}.featured-copy{padding:27px 26px 22px}.supporting-experience{padding:20px;margin-top:24px}.supporting-experience h3{font-size:12px}.supporting-experience p{font-size:11px}.skill-links button,.skill-links a{font-size:11px;min-height:36px}.profile-links{align-items:flex-start;flex-direction:column;gap:22px;padding:33px 0}.profile-links h2{font-size:25px}.profile-links p{font-size:12px}.profile-links .eyebrow{font-size:8px}.detail-section p,.detail-section ul{font-size:12px}}
 @media print{.about-section{padding:20px 0;gap:30px}.about-copy p{font-size:11px}.profile-links{padding:20px 0}.profile-links .button,.skill-links{display:none}.project-summary dd,.featured-copy .project-summary dd,.project-summary dt,.featured-copy .project-summary dt{color:#333}.supporting-experience{break-inside:avoid}.about-heading h2{font-size:23px}}
+
+
+/* Approved project images: preserve the full frame and expose a large view. */
+.project-media{margin:0;min-width:0}
+.media-frame{display:block;position:relative;overflow:hidden;border-radius:12px;background:#e9eee3;border:1px solid #d6dfcf}
+.media-frame img{display:block;width:100%;height:auto;object-fit:contain}
+.media-zoom{position:absolute;right:12px;bottom:12px;padding:7px 11px;background:#f6f7f2ed;color:#294b3a;border:1px solid #ccd7c3;border-radius:7px;font-size:11px;box-shadow:0 2px 12px #15221915;transition:background .2s}
+.media-frame:hover .media-zoom{background:var(--lime)}
+.project-media figcaption{display:grid;gap:8px;font-size:11px;line-height:1.8;color:var(--muted);padding-top:13px}
+.media-label{font-size:9px;font-weight:700;letter-spacing:.04em;justify-self:start;padding:3px 8px;border:1px solid #ccd7c1;border-radius:4px;color:#47663b;line-height:1.6}
+.featured-media{margin:28px 28px 28px 0;display:flex;flex-direction:column;justify-content:center;padding:24px;background:#1a3126;border-radius:16px}
+.featured-media .media-frame{border-color:#62785a;background:#102219}
+.featured-media figcaption{color:#cad7c0;padding-top:17px;font-size:12px}
+.featured-media .media-label{border-color:#6a825c;color:var(--lime)}
+.card-media{padding:18px 18px 0;background:#edf1e7}
+.card-media .media-frame{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#e3e9dd}
+.card-media .media-frame img{height:100%;max-height:100%;object-fit:contain}
+.card-media figcaption{padding:13px 4px 17px;min-height:116px}
+.detail-media{margin-top:25px}
+.detail-media .media-frame{background:#e6ebdf}
+.detail-media img{max-height:65dvh;width:100%;height:auto;object-fit:contain}
+.detail-media figcaption{font-size:12px}
+@media(max-width:1050px){.featured-media{margin:24px 24px 24px 0;padding:18px}.featured-media figcaption{font-size:11px}.card-media{padding:14px 14px 0}.card-media figcaption{font-size:10px}}
+@media(max-width:800px){.featured-media{margin:20px 20px 20px 0;padding:14px}.media-zoom{right:8px;bottom:8px;font-size:10px;padding:6px 9px}.card-media figcaption{min-height:126px}}
+@media(max-width:620px){.featured-media{margin:0 18px 18px;padding:15px}.featured-media figcaption{font-size:11px;padding-top:13px}.card-media{padding:15px 15px 0}.card-media figcaption{min-height:0;font-size:11px;padding-bottom:17px}.media-zoom{min-height:36px;display:flex;align-items:center;padding:7px 10px}.detail-media{margin-top:20px}.detail-media figcaption{font-size:11px}}
+@media print{.featured-media{margin:15px;background:#fff;padding:0}.featured-media figcaption{color:#444}.featured-media .media-label{color:#444}.media-zoom{display:none}.card-media{break-inside:avoid}.project-media figcaption{color:#444}}
