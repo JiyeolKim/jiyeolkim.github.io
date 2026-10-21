@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f7f2">
+  <meta name="description" content="김지열의 개발 포트폴리오. RGB·IR 3D 차량 검출·추적, 눈 인식, rPPG, Android 및 임베디드 개발 경험을 소개합니다.">
+  <title>김지열 — AI · Vision · Embedded</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231c3b32'/%3E%3Ctext x='15' y='45' font-family='Arial' font-size='40' font-weight='700' fill='%23d5ed9c'%3Ej.%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#projects">프로젝트로 바로가기</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="김지열 포트폴리오 처음으로"><span class="brand-symbol">j.</span><span>JIYEOL KIM<span class="brand-caption">DEVELOPER PORTFOLIO</span></span></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="메뉴 열기"><span></span><span></span></button>
+      <nav id="main-nav" aria-label="주 메뉴"><a href="#projects">프로젝트</a><a href="#experience">개발 경험</a><a href="#skills">기술 스택</a><a class="nav-cta" href="#projects">포트폴리오 살펴보기 <span aria-hidden="true">↗</span></a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="tiny-square"></span> AI · COMPUTER VISION · EMBEDDED</div>
+        <h1 id="hero-title">영상 AI부터<br>모바일과<br>기기까지<span class="period">.</span></h1>
+        <p class="hero-name">개발자 <strong>김지열</strong>입니다.</p>
+        <p class="hero-description">영상 모델의 학습과 시스템 연동,<br class="desktop-break"> Android 앱과 기기 소프트웨어 개발을 수행했습니다.</p>
+        <div class="hero-actions"><a href="#projects" class="button button-primary">대표 프로젝트 보기 <span aria-hidden="true">↘</span></a><a href="#experience" class="text-link">개발 경험 <span aria-hidden="true">→</span></a></div>
+        <div class="hero-meta"><div><strong>약 6년</strong><span>개발 경력</span></div><div><strong>RGB · IR</strong><span>영상 AI</span></div><div><strong>App · Device</strong><span>구현 환경</span></div></div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="RGB와 IR 입력, 3D 차량 검출과 추적을 표현한 개념 시각화. 실제 실행 결과가 아닙니다.">
+        <div class="visual-heading"><span><i></i> VISION SYSTEMS</span><span>CONCEPT / 01</span></div>
+        <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+        <div class="sensor-tag sensor-rgb"><span class="sensor-icon">◉</span><span>RGB<small>COLOR INPUT</small></span></div>
+        <div class="sensor-tag sensor-ir"><span class="sensor-icon">◉</span><span>IR<small>INFRARED INPUT</small></span></div>
+        <svg class="vehicle-drawing" viewBox="0 0 560 390" aria-hidden="true">
+          <defs><pattern id="hero-grid" width="31" height="20" patternUnits="userSpaceOnUse"><path d="M31 0H0V20" fill="none" stroke="#b9c5ba" stroke-width=".5"/></pattern><linearGradient id="road-fade" x2="0" y2="1"><stop stop-color="#d9e4d0" stop-opacity=".1"/><stop offset="1" stop-color="#d9e4d0" stop-opacity=".8"/></linearGradient></defs>
+          <g transform="translate(25 268) skewX(-42) scale(1 .58)"><rect x="85" y="0" width="510" height="205" fill="url(#hero-grid)"/></g>
+          <path d="M93 303Q208 202 465 297" fill="none" stroke="#b7c58c" stroke-width="1.5" stroke-dasharray="5 7"/>
+          <g class="floating-car">
+            <path d="M161 156L332 113L463 193L292 242Z" fill="#d0e5a7" fill-opacity=".22" stroke="#aac772" stroke-width="1.4"/>
+            <path d="M161 156V257L292 337V242M332 113V214L463 294V193M161 257L332 214M292 337L463 294" fill="none" stroke="#86a651" stroke-width="1.6"/>
+            <path d="M195 229L204 198L253 173L323 163L380 192L421 216L424 258L392 275L257 310L200 276Z" fill="#fbfcf4" stroke="#29463b" stroke-width="2"/>
+            <path d="M204 198L268 221L380 192M268 221L257 260L200 237M257 260L392 225L421 216M257 260V310M392 225V275" fill="none" stroke="#29463b" stroke-width="1.5"/>
+            <path d="M221 193L270 177L319 172L359 193L273 214Z" fill="#b4c7b6" fill-opacity=".65" stroke="#29463b" stroke-width="1.1"/>
+            <path d="M270 177L273 214M276 228L370 204L381 221L270 249Z" fill="#dae4d3" stroke="#29463b" stroke-width="1.1"/>
+            <path d="M206 247L244 262V273L204 258M401 235L419 229V240L401 246" fill="#c6df85" stroke="#29463b" stroke-width="1"/>
+            <ellipse cx="281" cy="293" rx="16" ry="23" transform="rotate(16 281 293)" fill="#314b3d"/><ellipse cx="281" cy="293" rx="8" ry="13" transform="rotate(16 281 293)" fill="#cdd8c3"/>
+            <ellipse cx="386" cy="266" rx="13" ry="21" transform="rotate(16 386 266)" fill="#314b3d"/><ellipse cx="386" cy="266" rx="6" ry="11" transform="rotate(16 386 266)" fill="#cdd8c3"/>
+            <g fill="#d5ed9c" stroke="#2f4a39" stroke-width="1.3"><circle cx="161" cy="156" r="4"/><circle cx="332" cy="113" r="4"/><circle cx="463" cy="193" r="4"/><circle cx="292" cy="337" r="4"/></g>
+          </g>
+          <path d="M126 124L177 124L190 136M465 255H490V229" fill="none" stroke="#8da090" stroke-width="1.2"/>
+        </svg>
+        <div class="model-label label-smoke"><small>3D DETECTION</small><strong>SMOKE</strong></div><div class="model-label label-qd"><small>OBJECT TRACKING</small><strong>QD-3DT <span>↗</span></strong></div>
+        <div class="visual-caption"><span>RGB·IR 차량 검출·추적</span><span>시스템 개념도</span></div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects container" aria-labelledby="projects-title">
+      <div class="section-heading"><div><div class="eyebrow">01 / SELECTED WORK</div><h2 id="projects-title">대표 프로젝트</h2></div><p>모델 학습부터 실제 환경 적용까지,<br>직접 수행한 개발 경험입니다.</p></div>
+      <article id="project-vehicle" class="featured-project">
+        <div class="featured-copy"><div class="project-kicker"><span>01</span> COMPUTER VISION</div><h3>RGB·IR 영상 기반<br>3D 차량 검출·추적</h3><p>QD-3DT의 검출부를 SMOKE로 교체하고,<br class="desktop-break"> RGB·IR 데이터로 직접 학습하고 미세조정했습니다.</p><div class="ownership"><span aria-hidden="true">↳</span> 전체 시스템 구성·개발 단독 담당</div><div class="chips"><span>SMOKE</span><span>QD-3DT</span><span>RGB / IR</span></div><button class="project-link" data-project="vehicle">프로젝트 자세히 보기 <span class="round-arrow" aria-hidden="true">↗</span></button></div>
+        <div class="pipeline-visual" aria-label="RGB·IR 영상, SMOKE 검출, QD-3DT 추적 순서의 시스템 개념도"><div class="pipeline-topline"><span>THE PIPELINE</span><span>01—03</span></div><div class="pipeline-input"><span>RGB <i>+</i> IR</span><small>영상 입력</small></div><span class="pipeline-line" aria-hidden="true">↓</span><div class="pipeline-node"><span class="node-number">01</span><div><strong>SMOKE</strong><small>3D 차량 검출</small></div><span class="node-symbol" aria-hidden="true">⌗</span></div><span class="pipeline-line" aria-hidden="true">↓</span><div class="pipeline-node node-dark"><span class="node-number">02</span><div><strong>QD-3DT</strong><small>기존 추적 구조 활용</small></div><span class="node-symbol" aria-hidden="true">⤴</span></div><div class="pipeline-note">구현 구조를 요약한 개념도</div></div>
+      </article>
+      <div class="project-grid">
+        <article id="project-eye" class="project-card eye-card"><div class="card-illustration eye-art" role="img" aria-label="눈 영역 검출과 추적의 개념 시각화"><svg viewBox="0 0 500 210" aria-hidden="true"><defs><pattern id="eye-dots" width="19" height="19" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#b3bcae"/></pattern></defs><rect width="500" height="210" fill="url(#eye-dots)"/><path d="M137 109Q250 5 363 109Q250 207 137 109Z" fill="#f9faf2" stroke="#41584b" stroke-width="2"/><circle cx="250" cy="109" r="43" fill="#d0e0bb" stroke="#41584b" stroke-width="2"/><circle cx="250" cy="109" r="18" fill="#29463b"/><circle cx="260" cy="99" r="6" fill="#f9faf2"/><path d="M121 79V48H153M347 48H379V79M379 139V170H347M153 170H121V139" fill="none" stroke="#5b8657" stroke-width="2.5"/><path d="M226 109H274M250 85V133" stroke="#84a45a" stroke-width="1"/><path d="M402 104H439M420 87V123" stroke="#b3c29e" stroke-width="1.2"/></svg><span class="art-caption">눈 영역 검출·추적 개념도</span></div><div class="card-content"><div class="project-kicker"><span>02</span> VISION APPLICATION</div><h3>눈 인식 및 트래킹</h3><p>데이터를 직접 수집·라벨링하고, YOLO 모델 학습부터 애플리케이션 적용까지 수행했습니다.</p><div class="chips"><span>YOLO</span><span>데이터 구축</span><span>앱 연동</span></div><button class="project-link" data-project="eye">프로젝트 자세히 보기 <span class="round-arrow" aria-hidden="true">↗</span></button></div></article>
+        <article id="project-rppg" class="project-card signal-card"><div class="card-illustration signal-art" role="img" aria-label="얼굴 영상과 생체신호 분석을 표현한 개념 시각화"><svg viewBox="0 0 500 210" aria-hidden="true"><path d="M0 52H500M0 105H500M0 158H500M83 0V210M166 0V210M250 0V210M333 0V210M416 0V210" stroke="#cad9d5" stroke-width=".7"/><path d="M0 117C25 117 24 84 46 84S68 132 91 132S114 80 136 80S158 125 182 125S205 74 229 74S252 124 274 124S296 86 319 86S343 131 365 131S390 78 412 78S435 122 459 122S484 90 500 90" fill="none" stroke="#2e6660" stroke-width="2.5"/><rect x="188" y="24" width="128" height="164" rx="18" fill="#f3f7f3" stroke="#47746b" stroke-width="1.5"/><path d="M223 65Q253 43 282 65L276 108Q252 137 229 108Z" fill="#d8e6d9" stroke="#47746b" stroke-width="1.3"/><path d="M218 150Q253 120 287 150" fill="none" stroke="#47746b" stroke-width="1.3"/><path d="M205 54V43H218M287 43H300V54M300 108V120H287M218 120H205V108" stroke="#84a45a" stroke-width="1.4" fill="none"/><path d="M242 33H263" stroke="#47746b" stroke-width="2" stroke-linecap="round"/></svg><span class="art-caption">얼굴 영상 기반 신호 분석 개념도</span></div><div class="card-content"><div class="project-kicker"><span>03</span> BIOSIGNAL AI</div><h3>rPPG 기반 심박 추정</h3><p>심박 추정 모델을 비교하고, Android ONNX Runtime 환경에서 모바일 동작을 테스트했습니다.</p><div class="chips"><span>PhysNet</span><span>RhythmMamba</span><span>ONNX Runtime</span></div><button class="project-link" data-project="rppg">프로젝트 자세히 보기 <span class="round-arrow" aria-hidden="true">↗</span></button></div></article>
+      </div>
+    </section>
+
+    <section id="experience" class="experience container" aria-labelledby="experience-title"><div class="section-heading"><div><div class="eyebrow">02 / BEYOND THE MODEL</div><h2 id="experience-title">앱과 기기, 그리고 연구개발</h2></div><p>모델을 사용하는 환경의 개발과<br>연구개발 업무를 함께 수행했습니다.</p></div>
+      <div class="experience-list">
+        <details class="experience-item"><summary><span class="exp-index">01</span><div><h3>Android 앱 개발</h3><p>기능 구현부터 기기 테스트·스토어 업로드까지</p></div><span class="exp-category">MOBILE</span><span class="exp-toggle" aria-hidden="true"></span></summary><div class="experience-body"><p>Android 앱을 개발하고 실제 기기에서 동작을 확인했으며, 스토어 업로드까지 수행했습니다.</p><ul><li>프로젝트에 필요한 Android 앱 기능 개발</li><li>실제 기기에서 동작 테스트</li><li>앱 스토어 업로드 수행</li></ul></div></details>
+        <details class="experience-item"><summary><span class="exp-index">02</span><div><h3>nRF52840 · ESP 펌웨어</h3><p>기기 제어, BLE 통신과 예외 상황 처리</p></div><span class="exp-category">EMBEDDED</span><span class="exp-toggle" aria-hidden="true"></span></summary><div class="experience-body"><p>nRF52840 및 ESP 보드의 펌웨어 개발을 수행했습니다. nRF52840 기반 웨어러블에서는 LED 구동, 버튼 입력, 전원 상태와 BLE 통신을 구현했습니다.</p><ul><li>LED 점등과 PWM 제어, BLE 앱 연동</li><li>동작 종료, 절전·재기동 및 watchdog 처리</li><li>카메라 장시간 구동 중 멈춤에 대응하는 타임아웃·초기화 보완</li></ul></div></details>
+        <details class="experience-item"><summary><span class="exp-index">03</span><div><h3>TIPS · 국가과제 관리</h3><p>과제계획서와 진행·보고 자료 작성</p></div><span class="exp-category">R&amp;D</span><span class="exp-toggle" aria-hidden="true"></span></summary><div class="experience-body"><p>TIPS 실무와 국가과제 관리를 수행했습니다. 개발 업무와 병행해 과제의 진행 상황과 기술 내용을 문서로 정리했습니다.</p><ul><li>과제계획서 작성</li><li>과제 진행 및 보고 자료 작성</li><li>개발 내용과 기술 성과 정리</li></ul></div></details>
+        <details class="experience-item"><summary><span class="exp-index">04</span><div><h3>특허 관련 기술 서류</h3><p>개발 기술을 설명하는 자료 작성</p></div><span class="exp-category">DOCUMENTATION</span><span class="exp-toggle" aria-hidden="true"></span></summary><div class="experience-body"><p>개발 기술을 설명하는 특허 관련 서류 작성에 참여했습니다. 기술 내용을 문서로 정리하고 특허 작성 과정에 필요한 자료를 준비했습니다.</p><ul><li>개발 기술의 설명 자료 작성</li><li>특허 관련 서류 작성 참여</li></ul></div></details>
+      </div>
+    </section>
+
+    <section id="skills" class="skills-section" aria-labelledby="skills-title"><div class="container skills-layout"><div class="skills-intro"><div class="eyebrow">03 / TOOLS &amp; TECHNOLOGIES</div><h2 id="skills-title">프로젝트에 사용한<br>기술과 개발 환경</h2><p>영상 AI와 모바일 추론,<br>기기 소프트웨어를 연결해 개발했습니다.</p><a href="#projects" class="text-link light-link">프로젝트 다시 보기 <span aria-hidden="true">↗</span></a></div><div class="skills-grid"><div class="skill-group"><span class="skill-index">01</span><h3>Computer Vision</h3><p>SMOKE · QD-3DT · YOLO</p><span>3D 검출·추적 / 눈 영역 인식</span></div><div class="skill-group"><span class="skill-index">02</span><h3>rPPG Models</h3><p>PhysNet · RhythmMamba<br>RhythmFormer</p><span>모델 학습 조건과 추정 결과 비교</span></div><div class="skill-group"><span class="skill-index">03</span><h3>Mobile</h3><p>Android · ONNX Runtime</p><span>앱 개발 / 모바일 추론 테스트</span></div><div class="skill-group"><span class="skill-index">04</span><h3>Embedded</h3><p>C · nRF52840 · ESP<br>Nordic SDK · BLE · PWM · SPI</p><span>펌웨어 / 기기 제어·통신</span></div></div></div></section>
+  </main>
+
+  <footer class="container site-footer"><div><a class="footer-name" href="#top">JIYEOL KIM<span>김지열 · 개발 포트폴리오</span></a><p>AI · Computer Vision · Mobile · Embedded</p></div><div class="footer-right"><a href="#top" class="back-top">맨 위로 <span aria-hidden="true">↑</span></a><span>© 2026 JIYEOL KIM</span></div></footer>
+
+  <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-header"><span id="dialog-category" class="eyebrow"></span><button class="dialog-close" aria-label="프로젝트 상세 닫기">×</button></div><div class="dialog-content"><h2 id="dialog-title"></h2><p id="dialog-intro" class="dialog-intro"></p><div id="dialog-body"></div></div><div class="dialog-footer"><span>JIYEOL KIM / PROJECT DETAIL</span><button class="dialog-done">닫기 <span aria-hidden="true">↗</span></button></div></dialog>
+</body>
+</html>
