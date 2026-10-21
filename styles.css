@@ -31,10 +31,16 @@
 .card-content .project-link{font-size:12px}
 .project-card{display:flex;flex-direction:column}
 .project-card .card-content{flex:1}
-.supporting-experience{margin-top:28px;padding:23px 26px;background:#edf1e7;border-radius:12px;display:grid;grid-template-columns:1fr 2fr;gap:28px}
-.supporting-experience h3{font-size:13px;font-weight:500;line-height:1.8;color:#53664e}
+.supporting-experience{margin-top:28px;background:#edf1e7;border-radius:12px}
+.supporting-experience summary{display:flex;align-items:center;gap:20px;padding:20px 26px;cursor:pointer;list-style:none}
+.supporting-experience summary::-webkit-details-marker{display:none}
+.supporting-experience summary:hover{background:#e7eddf;border-radius:12px}
+.supporting-experience summary:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:12px}
+.supporting-experience .exp-toggle{margin-left:auto}
+.supporting-body{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:0 26px 23px}
+.supporting-title{font-size:13px;font-weight:500;line-height:1.8;color:#53664e}
 .supporting-experience p{font-size:12px;line-height:1.9;color:var(--muted)}
-.supporting-experience p+p{margin-top:8px}
+.supporting-body p{margin:0}
 .supporting-experience strong{font-weight:500;color:#394f3c;margin-right:9px}
 .skill-context{font-size:11px;color:#b3c5a7;display:block;margin-top:8px;line-height:1.85}
 .skill-links{display:flex;flex-wrap:wrap;gap:5px 14px;margin-top:14px}
@@ -48,8 +54,8 @@
 .detail-section p,.detail-section ul{font-size:13px}
 .dialog-content h2{letter-spacing:-.045em}
 @media(max-width:1050px){.about-section{gap:45px}.about-heading h2{font-size:26px}.project-summary dd{font-size:12px}.featured-copy{padding:32px}.site-header nav{gap:20px}}
-@media(max-width:800px){.about-section{gap:28px;grid-template-columns:.8fr 1.2fr}.about-heading h2{font-size:24px}.about-copy p{font-size:13px}.project-summary>div{gap:9px;grid-template-columns:26px 1fr}.project-summary dd{font-size:12px}.supporting-experience{grid-template-columns:1fr;gap:9px}.skill-context{font-size:10px}.profile-links h2{font-size:25px}}
-@media(max-width:620px){.about-section{grid-template-columns:1fr;gap:20px;padding-top:31px;padding-bottom:22px}.about-heading h2{font-size:25px}.about-heading h2 br{display:none}.about-heading .eyebrow{font-size:8px;margin-bottom:10px}.about-copy p{font-size:13px}.career-direction{font-size:11px;line-height:1.8;align-items:flex-start}.career-direction i{margin-top:7px}.project-summary{gap:12px}.project-summary dt{font-size:10px}.project-summary dd{font-size:12px}.featured-copy{padding:27px 26px 22px}.supporting-experience{padding:20px;margin-top:24px}.supporting-experience h3{font-size:12px}.supporting-experience p{font-size:11px}.skill-links button,.skill-links a{font-size:11px;min-height:36px}.profile-links{align-items:flex-start;flex-direction:column;gap:22px;padding:33px 0}.profile-links h2{font-size:25px}.profile-links p{font-size:12px}.profile-links .eyebrow{font-size:8px}.detail-section p,.detail-section ul{font-size:12px}}
+@media(max-width:800px){.about-section{gap:28px;grid-template-columns:.8fr 1.2fr}.about-heading h2{font-size:24px}.about-copy p{font-size:13px}.project-summary>div{gap:9px;grid-template-columns:26px 1fr}.project-summary dd{font-size:12px}.supporting-body{grid-template-columns:1fr;gap:9px}.skill-context{font-size:10px}.profile-links h2{font-size:25px}}
+@media(max-width:620px){.about-section{grid-template-columns:1fr;gap:20px;padding-top:31px;padding-bottom:22px}.about-heading h2{font-size:25px}.about-heading h2 br{display:none}.about-heading .eyebrow{font-size:8px;margin-bottom:10px}.about-copy p{font-size:13px}.career-direction{font-size:11px;line-height:1.8;align-items:flex-start}.career-direction i{margin-top:7px}.project-summary{gap:12px}.project-summary dt{font-size:10px}.project-summary dd{font-size:12px}.featured-copy{padding:27px 26px 22px}.supporting-experience{margin-top:24px}.supporting-experience summary{padding:18px 20px;gap:14px}.supporting-body{padding:0 20px 20px}.supporting-title{font-size:12px}.supporting-experience p{font-size:11px}.skill-links button,.skill-links a{font-size:11px;min-height:36px}.profile-links{align-items:flex-start;flex-direction:column;gap:22px;padding:33px 0}.profile-links h2{font-size:25px}.profile-links p{font-size:12px}.profile-links .eyebrow{font-size:8px}.detail-section p,.detail-section ul{font-size:12px}}
 @media print{.about-section{padding:20px 0;gap:30px}.about-copy p{font-size:11px}.profile-links{padding:20px 0}.profile-links .button,.skill-links{display:none}.project-summary dd,.featured-copy .project-summary dd,.project-summary dt,.featured-copy .project-summary dt{color:#333}.supporting-experience{break-inside:avoid}.about-heading h2{font-size:23px}}
 
 

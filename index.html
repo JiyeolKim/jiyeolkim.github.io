@@ -30,7 +30,7 @@
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="김지열 포트폴리오 처음으로"><span class="brand-symbol">j.</span><span>JIYEOL KIM<span class="brand-caption">DEVELOPER PORTFOLIO</span></span></a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="메뉴 열기"><span></span><span></span></button>
-      <nav id="main-nav" aria-label="주 메뉴"><a href="#about">소개</a><a href="#projects">프로젝트</a><a href="#experience">개발 경험</a><a href="#skills">기술</a></nav>
+      <nav id="main-nav" aria-label="주 메뉴"><a href="#about">소개</a><a href="#projects">프로젝트</a><a href="#experience">개발 경험</a><a href="#skills">기술 스택</a></nav>
     </div>
   </header>
 
@@ -40,9 +40,9 @@
         <div class="eyebrow"><span class="tiny-square"></span> AI · COMPUTER VISION · EMBEDDED</div>
         <h1 id="hero-title">영상 AI부터<br>모바일과<br>기기까지<span class="period">.</span></h1>
         <p class="hero-name">AI·비전 개발자 <strong>김지열</strong>입니다.</p>
-        <p class="hero-description">데이터를 준비하고 모델을 학습해,<br class="desktop-break"> 실제 앱과 기기에서 동작하는 기능으로 연결합니다.</p>
+        <p class="hero-description">영상 모델을 학습하고,<br class="desktop-break"> 앱과 기기에서 실제로 동작하게 만듭니다.</p>
         <div class="hero-actions"><a href="#projects" class="button button-primary">대표 프로젝트 보기 <span aria-hidden="true">↘</span></a></div>
-        <div class="hero-meta"><div><strong>약 6년</strong><span>개발 경력</span></div><div><strong>RGB · IR</strong><span>영상 AI</span></div><div><strong>App · Device</strong><span>구현 환경</span></div></div>
+        <div class="hero-meta"><div><strong>약 6년</strong><span>개발 경력</span></div><div><strong>3개</strong><span>대표 AI·비전 프로젝트</span></div><div><strong>Google Play</strong><span>앱 출시 경험</span></div></div>
       </div>
       <div class="hero-visual" role="img" aria-label="RGB와 IR 입력, 3D 차량 검출과 추적을 표현한 개념 시각화. 실제 실행 결과가 아닙니다.">
         <div class="visual-heading"><span><i></i> VISION SYSTEMS</span><span>CONCEPT / 01</span></div>
@@ -80,7 +80,7 @@
     <section id="projects" class="projects container" aria-labelledby="projects-title">
       <div class="section-heading"><div><div class="eyebrow">01 / SELECTED WORK</div><h2 id="projects-title">대표 프로젝트</h2></div><p>해결하려던 문제와 구현 결과,<br>직접 맡은 범위를 함께 정리했습니다.</p></div>
       <article id="project-vehicle" class="featured-project">
-        <div class="featured-copy"><div class="project-kicker"><span>01</span> COMPUTER VISION</div><h3>RGB·IR 영상 기반<br>3D 차량 검출·추적</h3><dl class="project-summary"><div><dt>문제</dt><dd>IR 카메라 영상에 적용할 3D 차량 검출·추적 시스템이 필요했습니다.</dd></div><div><dt>접근</dt><dd>QD-3DT 검출부를 SMOKE로 교체하고 RGB·IR 데이터로 학습·미세조정했습니다.</dd></div><div><dt>결과</dt><dd>IR 카메라 영상에서 차량 검출과 추적을 수행했습니다.</dd></div></dl><div class="ownership"><span aria-hidden="true">↳</span> 전체 시스템 구성·개발 단독 담당</div><div class="chips"><span>SMOKE</span><span>QD-3DT</span><span>RGB / IR</span></div><button class="project-link" data-project="vehicle">구현 과정과 담당 범위 <span class="round-arrow" aria-hidden="true">↗</span></button></div>
+        <div class="featured-copy"><div class="project-kicker"><span>01</span> COMPUTER VISION</div><h3>RGB·IR 영상 기반<br>3D 차량 검출·추적</h3><dl class="project-summary"><div><dt>문제</dt><dd>IR 카메라 영상에서 3D 차량 검출과 추적을 하나의 시스템으로 구현해야 했습니다.</dd></div><div><dt>접근</dt><dd>QD-3DT 검출부를 SMOKE로 교체하고, RGB·IR 데이터로 직접 학습·미세조정해 추적 모듈과 연동했습니다.</dd></div><div><dt>결과</dt><dd>IR 입력부터 차량의 3D 검출·추적까지 연결한 시스템을 구현하고 동작을 확인했습니다.</dd></div></dl><div class="ownership"><span aria-hidden="true">↳</span> 전체 시스템 구성·개발 단독 담당</div><div class="chips"><span>SMOKE</span><span>QD-3DT</span><span>RGB / IR</span></div><button class="project-link" data-project="vehicle">구현 과정과 담당 범위 <span class="round-arrow" aria-hidden="true">↗</span></button></div>
         <figure class="project-media featured-media">
   <a class="media-frame" href="assets/vehicle-ir-result.jpg" target="_blank" rel="noopener noreferrer" aria-label="실행 결과 이미지 원본 크게 보기">
     <img src="assets/vehicle-ir-result.jpg" alt="IR 도로 영상에 차량의 3D 검출 박스가 표시된 실행 화면" width="960" height="540" loading="lazy" decoding="async">
@@ -96,14 +96,14 @@
     <span class="media-zoom" aria-hidden="true">크게 보기 ↗</span>
   </a>
   <figcaption><span class="media-label">학습 배치</span><span>YOLO 학습 배치 시각화입니다. 최종 검출 결과나 정확도 지표를 나타내는 이미지는 아닙니다.</span></figcaption>
-</figure><div class="card-content"><div class="project-kicker"><span>02</span> VISION APPLICATION</div><h3>눈 인식 및 트래킹</h3><dl class="project-summary"><div><dt>문제</dt><dd>영상 속 눈 영역을 검출하고 추적하는 기능을 앱에 적용해야 했습니다.</dd></div><div><dt>접근</dt><dd>데이터 수집·라벨링, YOLO 학습과 눈 영역 트래킹을 직접 구현했습니다.</dd></div><div><dt>결과</dt><dd>눈 인식과 트래킹 기능을 애플리케이션에 연결했습니다.</dd></div></dl><div class="chips"><span>YOLO</span><span>데이터 구축</span><span>앱 연동</span></div><button class="project-link" data-project="eye">구현 과정과 담당 범위 <span class="round-arrow" aria-hidden="true">↗</span></button></div></article>
+</figure><div class="card-content"><div class="project-kicker"><span>02</span> VISION APPLICATION</div><h3>눈 인식 및 트래킹</h3><dl class="project-summary"><div><dt>문제</dt><dd>앱에서 영상 속 눈 영역을 찾고 움직임을 따라 추적하는 기능이 필요했습니다.</dd></div><div><dt>접근</dt><dd>눈 영상 데이터를 직접 수집·라벨링하고 YOLO를 학습한 뒤, 검출 결과를 트래킹 기능과 연결했습니다.</dd></div><div><dt>결과</dt><dd>직접 학습한 모델의 눈 영역 검출·트래킹을 앱에 적용하고 동작을 확인했습니다.</dd></div></dl><div class="chips"><span>YOLO</span><span>데이터 구축</span><span>앱 연동</span></div><button class="project-link" data-project="eye">구현 과정과 담당 범위 <span class="round-arrow" aria-hidden="true">↗</span></button></div></article>
         <article id="project-rppg" class="project-card signal-card"><figure class="project-media card-media">
   <a class="media-frame" href="assets/rppg-model-demo.png" target="_blank" rel="noopener noreferrer" aria-label="모델 비교 시연 이미지 원본 크게 보기">
     <img src="assets/rppg-model-demo.png" alt="같은 얼굴 영상 입력에 대한 PhysNet, RhythmFormer, RhythmMamba의 BPM과 파형을 비교하는 화면" width="1920" height="1080" loading="lazy" decoding="async">
     <span class="media-zoom" aria-hidden="true">크게 보기 ↗</span>
   </a>
   <figcaption><span class="media-label">모델 비교 시연</span><span>모델 3종의 BPM·파형을 비교하는 시연 화면입니다. 기준 심박계 미연결 상태로, 정확도 평가 결과는 아닙니다.</span></figcaption>
-</figure><div class="card-content"><div class="project-kicker"><span>03</span> BIOSIGNAL AI</div><h3>rPPG 기반 심박 추정</h3><dl class="project-summary"><div><dt>문제</dt><dd>짧은 얼굴 영상의 심박 추정과 모바일 실행 조건을 함께 검토해야 했습니다.</dd></div><div><dt>접근</dt><dd>모델 3종의 학습 결과를 비교하고 Android ONNX Runtime에서 테스트했습니다.</dd></div><div><dt>결과</dt><dd>영상 길이별 비교 결과와 실제 기기 동작을 확인하고 후속 개선점을 정리했습니다.</dd></div></dl><div class="chips"><span>PhysNet</span><span>RhythmMamba</span><span>ONNX Runtime</span></div><button class="project-link" data-project="rppg">구현 과정과 담당 범위 <span class="round-arrow" aria-hidden="true">↗</span></button></div></article>
+</figure><div class="card-content"><div class="project-kicker"><span>03</span> BIOSIGNAL AI</div><h3>rPPG 기반 심박 추정</h3><dl class="project-summary"><div><dt>문제</dt><dd>얼굴 영상으로 심박을 추정하고, 짧은 촬영 구간과 모바일 환경에서의 실행 가능성을 검토해야 했습니다.</dd></div><div><dt>접근</dt><dd>PhysNet·RhythmMamba·RhythmFormer의 학습 결과를 비교하고 Android ONNX Runtime에 연동했습니다.</dd></div><div><dt>결과</dt><dd>5초·10초 구간의 추정 결과와 모델 연산량을 비교하고, 실제 Android 기기에서 모델 실행을 확인했습니다.</dd></div></dl><div class="chips"><span>PhysNet</span><span>RhythmMamba</span><span>ONNX Runtime</span></div><button class="project-link" data-project="rppg">구현 과정과 담당 범위 <span class="round-arrow" aria-hidden="true">↗</span></button></div></article>
       </div>
     </section>
 
@@ -128,16 +128,16 @@
   </article>
  </div></div>
 </details>
-        <details id="firmware" class="experience-item"><summary><span class="exp-index">02</span><div><h3>nRF52840 · ESP 펌웨어</h3><p>기기 제어, BLE 통신과 예외 상황 처리</p></div><span class="exp-category">EMBEDDED</span><span class="exp-toggle" aria-hidden="true"></span></summary><div class="experience-body"><p>nRF52840 및 ESP 보드의 펌웨어 개발을 수행했습니다. nRF52840 기반 웨어러블에서는 LED 구동, 버튼 입력, 전원 상태와 BLE 통신을 구현했습니다.</p><ul><li>LED 점등과 PWM 제어, BLE 앱 연동</li><li>동작 종료, 절전·재기동 및 watchdog 처리</li><li>카메라 장시간 구동 중 멈춤에 대응하는 타임아웃·초기화 보완</li></ul><figure class="firmware-overview" aria-labelledby="firmware-map-title">
+        <details id="firmware" class="experience-item"><summary><span class="exp-index">02</span><div><h3>nRF52840 · ESP 펌웨어</h3><p>앱 명령에 따른 기기 제어 · 장시간 구동 예외 대응</p></div><span class="exp-category">EMBEDDED</span><span class="exp-toggle" aria-hidden="true"></span></summary><div class="experience-body"><p>앱의 명령을 실제 기기 동작으로 연결하기 위해 nRF52840·ESP 보드의 펌웨어를 개발했습니다. nRF52840 웨어러블에서는 LED 구동, 버튼 입력, 전원 상태 관리와 BLE 통신을 구현했습니다.</p><ul><li>BLE 명령과 LED 점등·PWM 제어를 연결해 앱에서 기기 조작</li><li>동작 종료·절전·재기동 흐름과 watchdog 처리 구현</li><li>장시간 카메라 구동 중 멈춤에 대응하도록 타임아웃 감지와 초기화 경로 보완</li></ul><figure class="firmware-overview" aria-labelledby="firmware-map-title">
  <figcaption><strong id="firmware-map-title">nRF52840 제어 구성</strong><span>개발 범위를 요약한 개념도</span></figcaption>
  <div class="firmware-flow"><div class="firmware-node"><small>입력</small><strong>BLE 명령 · 버튼</strong></div><span class="firmware-arrow" aria-hidden="true">→</span><div class="firmware-node firmware-core"><small>nRF52840 펌웨어</small><strong>동작 상태 · 타이머 관리</strong></div><span class="firmware-arrow" aria-hidden="true">→</span><div class="firmware-node"><small>기기 제어</small><strong>LED·PWM / 종료·절전</strong></div></div>
  <p>watchdog와 타임아웃 처리로 예외 상황에 대응했습니다.</p>
 </figure></div></details>
       </div>
-      <aside class="supporting-experience" aria-labelledby="supporting-title"><h3 id="supporting-title">개발과 병행한 연구개발 업무</h3><div><p><strong>TIPS·국가과제</strong> 과제계획서와 진행·보고 자료 작성, 개발 내용 정리</p><p><strong>특허 관련 서류</strong> 기술 설명 자료 준비 및 서류 작성 참여</p></div></aside>
+      <details class="supporting-experience" aria-labelledby="supporting-title"><summary><span id="supporting-title" class="supporting-title">기타 업무: TIPS·국가과제 관리 · 특허 서류</span><span class="exp-toggle" aria-hidden="true"></span></summary><div class="supporting-body"><p><strong>TIPS·국가과제</strong> 과제계획서와 진행·보고 자료 작성, 개발 내용 정리</p><p><strong>특허 관련 서류</strong> 기술 설명 자료 준비 및 서류 작성 참여</p></div></details>
     </section>
 
-    <section id="skills" class="skills-section" aria-labelledby="skills-title"><div class="container skills-layout"><div class="skills-intro"><div class="eyebrow">03 / TECHNOLOGIES</div><h2 id="skills-title">프로젝트에 사용한<br>기술과 개발 환경</h2><p>각 기술을 어떤 문제에 사용했는지,<br>해당 프로젝트와 개발 경험에서 확인할 수 있습니다.</p></div><div class="skills-grid"><div class="skill-group"><span class="skill-index">01</span><h3>Computer Vision</h3><p>SMOKE · QD-3DT · YOLO</p><span class="skill-context">검출부 교체·학습 / 눈 영역 인식</span><div class="skill-links"><button data-project="vehicle">차량 프로젝트 ↗</button><button data-project="eye">눈 인식 프로젝트 ↗</button></div></div><div class="skill-group"><span class="skill-index">02</span><h3>rPPG Models</h3><p>PhysNet · RhythmMamba<br>RhythmFormer</p><span class="skill-context">학습 조건·영상 길이별 추정 결과 비교</span><div class="skill-links"><button data-project="rppg">rPPG 프로젝트 ↗</button></div></div><div class="skill-group"><span class="skill-index">03</span><h3>Mobile</h3><p>Android · ONNX Runtime</p><span class="skill-context">모델 실행·기기 테스트·스토어 업로드</span><div class="skill-links"><button data-project="rppg">모바일 추론 ↗</button><a href="#android">앱 개발 경험 ↗</a></div></div><div class="skill-group"><span class="skill-index">04</span><h3>Embedded</h3><p>C · nRF52840 · ESP<br>Nordic SDK · BLE · PWM · SPI</p><span class="skill-context">LED 제어·BLE 연동·타임아웃 처리</span><div class="skill-links"><a href="#firmware">펌웨어 개발 경험 ↗</a></div></div></div></div></section>
+    <section id="skills" class="skills-section" aria-labelledby="skills-title"><div class="container skills-layout"><div class="skills-intro"><div class="eyebrow">03 / TECHNOLOGIES</div><h2 id="skills-title">기술 스택</h2><p>각 기술을 어떤 문제에 사용했는지,<br>해당 프로젝트와 개발 경험에서 확인할 수 있습니다.</p></div><div class="skills-grid"><div class="skill-group"><span class="skill-index">01</span><h3>Computer Vision</h3><p>SMOKE · QD-3DT · YOLO</p><span class="skill-context">RGB·IR 3D 검출·추적 · 눈 영역 YOLO 학습</span><div class="skill-links"><button data-project="vehicle">차량 프로젝트 ↗</button><button data-project="eye">눈 인식 프로젝트 ↗</button></div></div><div class="skill-group"><span class="skill-index">02</span><h3>rPPG Models</h3><p>PhysNet · RhythmMamba<br>RhythmFormer</p><span class="skill-context">3종 모델 학습·미세조정 · 5초·10초 구간 비교</span><div class="skill-links"><button data-project="rppg">rPPG 프로젝트 ↗</button></div></div><div class="skill-group"><span class="skill-index">03</span><h3>Mobile</h3><p>Android · ONNX Runtime</p><span class="skill-context">Android 모델 실행 · AgingLoc 스토어 등록</span><div class="skill-links"><button data-project="rppg">모바일 추론 ↗</button><a href="#android">앱 개발 경험 ↗</a></div></div><div class="skill-group"><span class="skill-index">04</span><h3>Embedded</h3><p>C · nRF52840 · ESP<br>Nordic SDK · BLE · PWM · SPI</p><span class="skill-context">nRF52840 기기 제어 · BLE 연동 · 예외 대응</span><div class="skill-links"><a href="#firmware">펌웨어 개발 경험 ↗</a></div></div></div></div></section>
   </main>
 
   <footer class="container site-footer"><div><a class="footer-name" href="#top">JIYEOL KIM<span>김지열 · 개발 포트폴리오</span></a><p>AI · Computer Vision · Mobile · Embedded</p></div><div class="footer-right"><a href="#top" class="back-top">맨 위로 <span aria-hidden="true">↑</span></a><span>© 2026 JIYEOL KIM</span></div></footer>
