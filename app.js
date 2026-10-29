@@ -1,203 +1,240 @@
 'use strict';
 
 const projects = {
-  vehicle: {
-    details: {
-    "facts": [
+  "vehicle": {
+    "details": {
+      "facts": [
         [
-            "목표 입력",
-            "IR 카메라 영상"
+          "소속 · 기간",
+          "스마트비전글로벌 · 6개월"
         ],
         [
-            "학습 데이터",
-            "RGB·IR 영상 데이터"
+          "담당 범위",
+          "시스템 설계·개발 단독 수행"
         ],
         [
-            "3D 검출",
-            "SMOKE로 기존 검출부 교체"
+          "입력 · 학습",
+          "IR 카메라 적용 · RGB·IR 학습"
         ],
         [
-            "추적",
-            "QD-3DT의 기존 추적 구조 활용"
+          "검출 · 추적",
+          "SMOKE 검출 + QD-3DT 추적"
         ]
+      ],
+      "steps": [
+        [
+          "검출 단계 교체, 추적 구조 유지",
+          "QD-3DT의 Faster R-CNN 검출부와 3D 추정 부분을 SMOKE로 교체했습니다. 기존 embedding·tracking 구조는 유지해 검출 모델의 변경이 추적 단계와 연결되도록 구성했습니다."
+        ],
+        [
+          "두 구현의 데이터 규격 연결",
+          "이미지 메타데이터와 카메라 보정 정보의 형식을 맞추고, 3D 박스를 list와 CameraInstance3DBoxes 사이에서 변환했습니다. 현재 프레임뿐 아니라 추적에 사용하는 reference 프레임에도 변환을 적용했습니다."
+        ],
+        [
+          "사전학습 가중치 호환과 학습",
+          "SMOKE 사전학습 모델을 사용하기 위해 DLA Neck 채널을 256에서 64로 조정했습니다. RGB·IR 영상 데이터로 학습·미세조정하고, IR 영상에서 검출 결과와 추적 연동을 확인했습니다."
+        ]
+      ],
+      "comparison": {
+        "title": "처리 시간 비교",
+        "caption": "GTX 1660 · 960×480 입력 · 100개 평균",
+        "headers": [
+          "구성",
+          "평균 처리 시간"
+        ],
+        "rows": [
+          [
+            "기존 QD-3DT",
+            "0.48초"
+          ],
+          [
+            "SMOKE 단독",
+            "0.10초"
+          ],
+          [
+            "SMOKE + QD-3DT 추적",
+            "0.11초"
+          ]
+        ],
+        "note": "기존 QD-3DT 대비 약 77% 단축했습니다. 프로젝트 발표 자료에 기록된 측정값이며, SMOKE 단독 구성에는 추적 단계가 포함되지 않습니다."
+      }
+    },
+    "category": "01 / COMPUTER VISION",
+    "media": {
+      "src": "assets/vehicle-ir-result.jpg",
+      "width": 960,
+      "height": 540,
+      "alt": "IR 도로 영상에 차량의 3D 검출 박스가 표시된 실행 화면",
+      "label": "실행 결과",
+      "caption": "IR 카메라 입력에서 실행한 3D 차량 검출·추적 시스템 화면입니다."
+    },
+    "title": "RGB·IR 영상 기반 3D 차량 검출·추적 시스템",
+    "intro": "QD-3DT의 검출·3D 추정 부분을 SMOKE로 교체해 처리 시간을 줄이고, 기존 추적 구조와 연결했습니다. RGB·IR 데이터 학습부터 IR 카메라용 시스템 통합까지 단독으로 맡았습니다.",
+    "role": "전체 시스템 구성·개발 단독 담당",
+    "purpose": "IR 카메라 영상에서 차량의 3D 위치와 이동을 추적해야 했습니다. 기존 QD-3DT 구현의 검출 단계에 걸리는 시간을 줄이기 위해, 3D 검출 결과를 제공하는 SMOKE를 대안으로 검토했습니다.",
+    "validation": "개발 당시 변환 모듈은 배치 확장을 지원하지 않았습니다. SMOKE에 없는 depth uncertainty는 기존 추적 모듈과 연결하기 위해 1로 고정했습니다. 이 설계가 추적 정확도에 미치는 영향과 카메라 보정은 추가 검증 과제였으며, 처리 시간 개선을 정확도 개선으로 해석하지 않습니다.",
+    "result": "IR 영상의 3D 검출·추적 시스템을 구현하고, 기존 구성 대비 평균 처리 시간을 0.48초에서 0.11초로 줄였습니다.",
+    "technologies": [
+      "Python",
+      "SMOKE",
+      "QD-3DT",
+      "DLA",
+      "RGB / IR"
     ],
-    "steps": [
-        [
-            "검출 모델과 추적 구조의 연결",
-            "QD-3DT의 기존 검출부를 SMOKE로 교체했습니다. SMOKE가 차량의 3D 검출을 담당하고, 그 결과를 QD-3DT의 기존 추적 구조에서 활용하도록 시스템을 구성했습니다."
-        ],
-        [
-            "RGB·IR 데이터로 모델 학습",
-            "모델 교체와 함께 RGB·IR 영상 데이터를 활용한 학습과 미세조정을 직접 진행했습니다. 최종 적용 대상인 IR 카메라 입력에서 검출 모델을 실행하는 것을 목표로 작업했습니다."
-        ],
-        [
-            "IR 입력에서 시스템 실행 확인",
-            "학습한 검출 모델과 추적 모듈을 연동해 IR 영상에서 차량 검출·추적을 실행했습니다. 입력부터 검출, 추적까지 이어지는 전체 시스템의 구성과 개발을 단독으로 맡았습니다."
-        ]
-    ],
-    "checks": [
-        [
-            "3D 검출",
-            "IR 도로 영상에서 차량의 3D 검출 결과를 확인했습니다.",
-            "동작 확인"
-        ],
-        [
-            "추적 연동",
-            "SMOKE 검출부와 QD-3DT 추적 구조를 연결한 시스템을 실행했습니다.",
-            "연동 확인"
-        ],
-        [
-            "공개 결과물",
-            "IR 입력에 대한 실행 화면을 첨부했습니다.",
-            "화면 공개"
-        ]
+    "references": [
+      [
+        "SMOKE 공식 구현",
+        "https://github.com/lzccccc/SMOKE"
+      ],
+      [
+        "QD-3DT 공식 구현",
+        "https://github.com/SysCV/qd-3dt"
+      ]
     ]
-},
-    category: '01 / COMPUTER VISION',
-    media: {src:'assets/vehicle-ir-result.jpg', width:960, height:540, alt:'IR 도로 영상에 차량의 3D 검출 박스가 표시된 실행 화면', label:'실행 결과', caption:'IR 카메라 입력에서 실행한 3D 차량 검출·추적 시스템 화면입니다.'},
-    title: 'RGB·IR 영상 기반 3D 차량 검출·추적 시스템',
-    intro: 'IR 카메라 입력부터 차량의 3D 검출·추적까지 이어지는 시스템을 단독으로 구성했습니다. 검출부 교체, RGB·IR 데이터 학습·미세조정, 기존 추적 구조와의 연동을 직접 맡았습니다.',
-    role: '전체 시스템 구성·개발 단독 담당',
-    purpose: 'IR 카메라 영상에서 차량의 3D 위치를 검출하고 추적하는 시스템이 필요했습니다. QD-3DT의 기존 추적 구조를 활용하면서, IR 입력에 적용할 검출 모델을 학습하고 연동하는 것이 목표였습니다.',
-    approach: 'QD-3DT의 기존 검출부를 SMOKE로 교체하고, RGB·IR 영상 데이터로 모델을 직접 학습·미세조정했습니다. 학습한 검출 모델의 출력을 기존 QD-3DT 추적 구조와 연결해 IR 카메라 입력에서 동작하도록 구성했습니다.',
-    validation: 'IR 카메라 입력에서 차량 검출·추적 동작을 확인했습니다. 검출부 교체와 시스템 통합을 담당했으며, QD-3DT의 기존 추적 구조를 활용했습니다.',
-    contributions: ['QD-3DT의 기존 검출부를 SMOKE로 교체', 'SMOKE 검출 모듈과 QD-3DT의 기존 추적 구조 연동', 'RGB 및 IR 영상 데이터를 활용한 모델 학습·미세조정', 'IR 카메라 영상에서 차량 검출·추적 동작 확인'],
-    result: 'IR 카메라 입력, SMOKE의 3D 차량 검출, QD-3DT의 추적을 하나의 시스템으로 연결했습니다. IR 영상에서 차량 검출·추적 동작을 확인했으며, 공개한 실행 화면에서 검출 결과를 볼 수 있습니다.',
-    technologies: ['SMOKE', 'QD-3DT', 'RGB / IR', '모델 학습·미세조정'],
-    references: [['SMOKE 공식 구현', 'https://github.com/lzccccc/SMOKE'], ['QD-3DT 공식 구현', 'https://github.com/SysCV/qd-3dt']]
   },
-  eye: {
-    details: {
-    "facts": [
+  "eye": {
+    "details": {
+      "facts": [
         [
-            "데이터",
-            "직접 수집한 눈 영상과 영역 라벨"
+          "소속 · 기간",
+          "메디아이오티 · 5개월"
         ],
         [
-            "학습 모델",
-            "YOLO"
+          "담당 범위",
+          "데이터 구축·모델 학습·앱 연동"
         ],
         [
-            "구현 기능",
-            "눈 영역 검출 및 트래킹"
+          "검출 모델",
+          "YOLO"
         ],
         [
-            "적용 범위",
-            "애플리케이션 연동 및 동작 확인"
+          "실행 환경",
+          "Android · Kotlin · ONNX"
         ]
-    ],
-    "steps": [
+      ],
+      "steps": [
         [
-            "학습 데이터 구축",
-            "눈 영상 데이터를 직접 수집하고 눈 영역을 라벨링했습니다. 학습용 입력과 라벨이 함께 표시된 배치 화면을 공개해 데이터 준비와 학습 작업의 일부를 확인할 수 있도록 했습니다."
+          "눈 영역 데이터 준비",
+          "눈 이미지를 직접 수집하고 영역을 라벨링해 학습 데이터를 구성했습니다. 공개한 학습 배치 화면에서 입력 이미지와 라벨 박스를 확인할 수 있습니다."
         ],
         [
-            "YOLO 모델 학습",
-            "직접 준비한 데이터를 사용해 YOLO를 학습했습니다. 학습 데이터 구축과 모델 학습을 함께 담당하고, 학습한 모델을 눈 인식·트래킹 기능에 적용하는 작업으로 이어갔습니다."
+          "검출 모델과 추적 기능 연결",
+          "수집한 데이터로 YOLO를 학습하고 검출 결과를 눈 영역 트래킹에 연결했습니다. 담당 기능은 눈 영역의 위치를 찾고 추적하는 범위입니다."
         ],
         [
-            "눈 영역 추적과 앱 연결",
-            "검출 결과를 눈 영역 트래킹 기능과 연결하고 애플리케이션에 적용했습니다. 데이터 준비, 모델 학습, 검출·추적 기능, 앱 연동까지 이어지는 개발 과정을 담당했습니다."
+          "Android 앱에서 동작 테스트",
+          "학습 모델을 Android 앱에 연동하고 실제 기기에서 눈 영역 인식·추적 동작을 테스트했습니다. 데이터 준비부터 모델 적용까지 이어지는 개발을 담당했습니다."
         ]
-    ],
-    "checks": [
-        [
-            "데이터·학습",
-            "눈 영역 라벨이 표시된 YOLO 학습 배치 화면을 첨부했습니다.",
-            "화면 공개"
-        ],
-        [
-            "앱 적용",
-            "학습한 모델을 앱에 적용해 눈 영역 검출·트래킹 동작을 확인했습니다.",
-            "동작 확인"
-        ]
+      ]
+    },
+    "category": "03 / VISION APPLICATION",
+    "media": {
+      "src": "assets/eye-training-batch.jpg",
+      "width": 768,
+      "height": 768,
+      "alt": "눈 영역과 라벨 박스가 표시된 YOLO 학습 배치 시각화",
+      "label": "학습 배치",
+      "caption": "YOLO 학습 배치 시각화입니다. 최종 검출 결과나 정확도 지표를 나타내는 이미지는 아닙니다."
+    },
+    "title": "눈 인식 및 트래킹",
+    "intro": "눈 영상 데이터 수집·라벨링부터 YOLO 학습, 눈 영역 검출·추적과 Android 연동까지 맡았습니다. 학습한 모델을 실제 앱의 영상 처리 흐름에 연결했습니다.",
+    "role": "데이터 구축·모델 학습·트래킹 및 앱 적용",
+    "purpose": "Android 앱에서 영상 속 눈 영역을 검출하고 움직임에 따라 추적하는 기능이 필요했습니다. 모델 학습에 사용할 눈 영역 데이터도 직접 준비했습니다.",
+    "validation": "공개 이미지는 학습 입력과 라벨을 보여주는 배치 시각화입니다. 최종 추론 결과 또는 정확도 평가 자료와 구분해 제시합니다.",
+    "result": "직접 구축한 데이터로 학습한 눈 영역 검출·트래킹 기능을 Android 앱에 적용했습니다.",
+    "technologies": [
+      "Python",
+      "YOLO",
+      "Android",
+      "Kotlin",
+      "ONNX"
     ]
-},
-    category: '02 / VISION APPLICATION',
-    media: {src:'assets/eye-training-batch.jpg', width:768, height:768, alt:'눈 영역과 라벨 박스가 표시된 YOLO 학습 배치 시각화', label:'학습 배치', caption:'YOLO 학습 배치 시각화입니다. 최종 검출 결과나 정확도 지표를 나타내는 이미지는 아닙니다.'},
-    title: '눈 인식 및 트래킹',
-    intro: '영상 속 눈 영역을 찾고 움직임을 추적하는 기능을 앱에 적용했습니다. 학습 데이터를 직접 수집·라벨링하고 YOLO 학습부터 트래킹 기능과의 연동까지 맡았습니다.',
-    role: '데이터 구축·모델 학습·트래킹 및 앱 적용',
-    purpose: '앱에서 영상 속 눈 영역을 찾고 움직임에 따라 추적하는 기능이 필요했습니다. 학습용 데이터 준비부터 모델 학습, 트래킹과 앱 연동까지 이어지는 개발 범위를 직접 맡았습니다.',
-    approach: '눈 영상 데이터를 직접 수집하고 눈 영역을 라벨링해 YOLO 학습에 사용했습니다. 학습한 모델의 검출 결과를 트래킹 기능과 연결하고, 애플리케이션에서 실행되도록 적용했습니다.',
-    validation: '직접 준비한 데이터로 학습한 모델을 앱에 적용해 눈 영역의 검출·트래킹 동작을 확인했습니다. 공개 이미지는 라벨과 학습 입력을 확인할 수 있는 YOLO 학습 배치입니다.',
-    contributions: ['눈 인식용 데이터 직접 수집 및 라벨링', '수집 데이터를 이용한 YOLO 모델 학습', '눈 인식 및 트래킹 기능 개발', '애플리케이션 적용 및 동작 확인'],
-    result: '데이터 구축부터 YOLO 학습, 눈 영역 검출·트래킹, 앱 연동으로 이어지는 흐름을 구현했습니다. 학습 모델을 애플리케이션에 적용해 동작을 확인했습니다.',
-    technologies: ['YOLO', '데이터 수집', '라벨링', '앱 연동']
   },
-  rppg: {
-    details: {
-    "facts": [
+  "rppg": {
+    "details": {
+      "facts": [
         [
-            "비교 모델",
-            "PhysNet · RhythmMamba · RhythmFormer"
+          "소속 · 기간",
+          "메디아이오티 · 4개월"
         ],
         [
-            "학습 검토",
-            "초기 학습 및 PURE 데이터 미세조정"
+          "담당 범위",
+          "모델 학습·비교, 모바일 추론 연동"
         ],
         [
-            "영상 구간",
-            "5초·10초 구간별 추정 결과 비교"
+          "비교 모델",
+          "PhysNet · RhythmMamba · RhythmFormer"
         ],
         [
-            "실행 환경",
-            "Android ONNX Runtime · 갤럭시 · 서버 웹"
+          "실행 환경",
+          "Android ONNX Runtime · 갤럭시 / 서버 GPU"
         ]
-    ],
-    "steps": [
+      ],
+      "steps": [
         [
-            "학습 조건별 모델 비교",
-            "PhysNet, RhythmMamba, RhythmFormer를 대상으로 초기 학습 결과와 PURE 데이터 미세조정 결과를 검토했습니다. 모델별 결과를 정리해 짧은 얼굴 영상의 심박 추정에 적용할 조건을 살폈습니다."
+          "학습 조건과 입력 길이 비교",
+          "무작위 초기화 학습과 PURE 데이터 미세조정 결과를 검토하고, 5초·10초 입력에서 추정 오차와 연산량을 비교했습니다. 모델의 결과를 영상 길이·학습 조건과 함께 정리했습니다."
         ],
         [
-            "영상 길이와 연산량 검토",
-            "5초·10초 영상 구간의 추정 오차와 모델 연산량을 비교했습니다. 추정 결과와 실행 부담을 함께 검토해 모바일 적용 시 확인해야 할 항목을 정리했습니다."
+          "모바일 적용 모델 선택",
+          "실험에서 PhysNet이 좋은 추정 성능을 보였지만, Android 적용에는 모델의 연산 구조와 실행 조건도 고려했습니다. 이 판단을 바탕으로 모바일 적용 모델로 RhythmMamba를 선택했습니다."
         ],
         [
-            "모바일·서버 실행 테스트",
-            "Android 앱에 ONNX Runtime을 연동해 갤럭시 기기에서 모델 실행을 테스트했습니다. 서버 웹 환경에서도 모델을 실행하고 입력 FPS 변화와 수집 중단, 결과 미표시 현상을 확인했습니다."
+          "ONNX 변환과 실제 기기 실행",
+          "RhythmMamba를 ONNX 형식으로 변환하고 Android 앱의 ONNX Runtime에 연결했습니다. 갤럭시 기기에서 실행을 테스트했으며, 서버 환경 테스트에서는 입력 FPS 변화와 영상 수집 중단, 결과 미표시 현상도 점검했습니다."
         ]
-    ],
-    "checks": [
-        [
-            "모델 비교",
-            "3종 모델의 학습 조건과 영상 길이에 따른 추정 결과·연산량을 비교했습니다.",
-            "비교 진행"
+      ],
+      "comparison": {
+        "title": "비교 기준과 적용 판단",
+        "caption": "모델 정확도와 실제 실행 환경을 함께 검토",
+        "headers": [
+          "비교 축",
+          "검토 내용"
         ],
-        [
-            "모바일 실행",
-            "Android ONNX Runtime 환경과 실제 갤럭시 기기에서 실행을 확인했습니다.",
-            "동작 확인"
+        "rows": [
+          [
+            "모델",
+            "PhysNet · RhythmMamba · RhythmFormer의 심박 추정 결과"
+          ],
+          [
+            "학습 조건",
+            "무작위 초기화 / PURE 데이터 미세조정"
+          ],
+          [
+            "입력 길이",
+            "5초 / 10초 구간의 추정 오차와 연산량"
+          ],
+          [
+            "적용 판단",
+            "모바일 실행 조건을 고려해 RhythmMamba를 Android에 적용"
+          ]
         ],
-        [
-            "입력 FPS",
-            "서버 웹 테스트에서 프레임 입력 간격이 일정하지 않은 현상을 확인했습니다.",
-            "후속 개선"
-        ],
-        [
-            "영상 수집",
-            "수집이 중간에 끊기는 현상을 확인해 수집 안정성 개선 항목으로 정리했습니다.",
-            "후속 개선"
-        ],
-        [
-            "결과 표시",
-            "신호 품질 조건에 따라 BPM을 표시하지 않는 경우를 확인했습니다.",
-            "후속 개선"
-        ]
+        "note": "모델별 실험 결과와 Android 실행 확인은 구분해 평가했습니다. 서버 환경에서의 실행 결과를 모바일 성능으로 간주하지 않습니다."
+      }
+    },
+    "category": "02 / BIOSIGNAL AI",
+    "media": {
+      "src": "assets/rppg-model-demo.png",
+      "width": 1920,
+      "height": 1080,
+      "alt": "같은 얼굴 영상 입력에 대한 PhysNet, RhythmFormer, RhythmMamba의 BPM과 파형을 비교하는 화면",
+      "label": "모델 비교 시연",
+      "caption": "모델 3종의 BPM·파형을 비교하는 시연 화면입니다. 기준 심박계 미연결 상태로, 정확도 평가 결과는 아닙니다."
+    },
+    "title": "rPPG 기반 심박 추정",
+    "intro": "PhysNet·RhythmMamba·RhythmFormer를 학습하고 영상 길이와 학습 조건에 따른 결과를 비교했습니다. 추정 성능과 모바일 실행 조건을 함께 고려해 RhythmMamba를 Android에 적용했습니다.",
+    "role": "모델 비교·모바일 추론 연동·테스트",
+    "purpose": "얼굴 영상으로 심박을 추정하는 기능을 Android 앱에서 실행하는 것이 목표였습니다. 짧은 촬영 구간에서의 추정 오차와 모델 실행 비용을 함께 검토해야 했습니다.",
+    "validation": "영상 수집 안정성과 신호 품질 처리는 후속 개선 항목으로 정리했습니다. 공개 시연 화면은 기준 심박계 미연결 상태이므로 BPM 표시 자체를 정확도 근거로 사용하지 않습니다.",
+    "result": "세 모델의 비교를 모바일 모델 선택으로 연결하고, RhythmMamba의 ONNX 변환부터 Android 추론 연동까지 구현했습니다.",
+    "technologies": [
+      "Python",
+      "PhysNet",
+      "RhythmMamba",
+      "RhythmFormer",
+      "ONNX Runtime",
+      "Android"
     ]
-},
-    category: '03 / BIOSIGNAL AI',
-    media: {src:'assets/rppg-model-demo.png', width:1920, height:1080, alt:'같은 얼굴 영상 입력에 대한 PhysNet, RhythmFormer, RhythmMamba의 BPM과 파형을 비교하는 화면', label:'모델 비교 시연', caption:'모델 3종의 BPM·파형을 비교하는 시연 화면입니다. 기준 심박계 미연결 상태로, 정확도 평가 결과는 아닙니다.'},
-    title: 'rPPG 기반 심박 추정',
-    intro: '얼굴 영상으로 심박수를 추정하는 모델 3종을 비교하고 Android 실행까지 연결했습니다. 짧은 촬영 구간의 추정 결과와 모델 연산량을 함께 살펴 모바일 적용 조건을 검토했습니다.',
-    role: '모델 비교·모바일 추론 연동·테스트',
-    purpose: '별도 생체신호 센서 없이 얼굴 영상으로 심박을 추정하고, 짧은 촬영 구간에서도 사용할 수 있는지 검토해야 했습니다. 모델의 추정 결과와 함께 휴대전화에서의 실행 조건을 확인하는 것이 목표였습니다.',
-    approach: 'PhysNet·RhythmMamba·RhythmFormer의 학습 결과와 PURE 데이터 미세조정 결과를 비교했습니다. 5초·10초 영상 구간의 추정 오차와 모델 연산량을 살피고, ONNX Runtime을 연동한 Android 앱과 서버 웹 환경에서 실행을 테스트했습니다.',
-    validation: '입력 FPS 변화, 수집 중단, 신호 품질에 따른 결과 미표시를 후속 개선 항목으로 정리했습니다. 시연 화면의 BPM 표시와 기준 심박계를 이용한 정확도 평가는 구분합니다.',
-    contributions: ['PhysNet·RhythmMamba·RhythmFormer의 학습 조건별 결과 비교', '초기 학습과 PURE 데이터 미세조정 결과 검토', '5초·10초 영상 구간의 추정 오차와 모델 연산량 비교', 'Android ONNX Runtime 환경에서 모델 실행 및 갤럭시 기기 테스트', '서버 웹 테스트에서 입력 FPS 변화, 수집 중단, 결과 미표시 현상 확인'],
-    result: '모델 3종의 학습 조건·영상 길이별 비교 결과를 정리하고, 실제 Android 기기와 서버 웹 환경에서 모델 실행을 확인했습니다. 테스트에서 확인한 입력 FPS 변화, 수집 중단과 결과 미표시 현상을 바탕으로 영상 수집 안정성과 신호 품질 처리를 후속 개선 항목으로 정리했습니다.',
-    technologies: ['PhysNet', 'RhythmMamba', 'RhythmFormer', 'ONNX Runtime', 'Android']
   }
 };
 
@@ -257,43 +294,36 @@ function developmentSteps(steps) {
   });
   return list;
 }
-function verificationTable(rows) {
+function comparisonTable(data) {
   const wrapper = document.createElement('div');
-  wrapper.className = 'verification-wrap';
-  wrapper.tabIndex = 0;
-  wrapper.setAttribute('role', 'region');
-  wrapper.setAttribute('aria-label', '검증 항목과 진행 상태 표');
+  wrapper.className = 'comparison-block';
+  const scroll = document.createElement('div');
+  scroll.className = 'verification-wrap';
+  scroll.tabIndex = 0;
+  scroll.setAttribute('role', 'region');
+  scroll.setAttribute('aria-label', data.title);
   const table = document.createElement('table');
-  table.className = 'verification-table';
+  table.className = 'verification-table comparison-table';
   const caption = document.createElement('caption');
-  caption.textContent = '항목별 확인 내용과 진행 상태';
-  const head = document.createElement('thead');
-  const headRow = document.createElement('tr');
-  ['항목', '확인 내용', '상태'].forEach(title => {
-    const cell = document.createElement('th');
-    cell.scope = 'col';
-    cell.textContent = title;
-    headRow.append(cell);
+  caption.textContent = data.caption;
+  const thead = document.createElement('thead');
+  const head = document.createElement('tr');
+  data.headers.forEach(text => {
+    const th = document.createElement('th'); th.scope = 'col'; th.textContent = text; head.append(th);
   });
-  head.append(headRow);
-  const body = document.createElement('tbody');
-  rows.forEach(([name, description, status]) => {
-    const row = document.createElement('tr');
-    const label = document.createElement('th');
-    label.scope = 'row';
-    label.textContent = name;
-    const detail = document.createElement('td');
-    detail.textContent = description;
-    const state = document.createElement('td');
-    const badge = document.createElement('span');
-    badge.className = status === '후속 개선' ? 'check-status is-pending' : 'check-status';
-    badge.textContent = status;
-    state.append(badge);
-    row.append(label, detail, state);
-    body.append(row);
+  thead.append(head);
+  const tbody = document.createElement('tbody');
+  data.rows.forEach(values => {
+    const tr = document.createElement('tr');
+    values.forEach((text, index) => {
+      const cell = document.createElement(index === 0 ? 'th' : 'td');
+      if (index === 0) cell.scope = 'row';
+      cell.textContent = text; tr.append(cell);
+    });
+    tbody.append(tr);
   });
-  table.append(caption, head, body);
-  wrapper.append(table);
+  table.append(caption, thead, tbody); scroll.append(table); wrapper.append(scroll);
+  const note = paragraph(data.note); note.className = 'comparison-note'; wrapper.append(note);
   return wrapper;
 }
 function openProject(id, trigger) {
@@ -308,6 +338,7 @@ function openProject(id, trigger) {
   if (project.role) {
     const role = document.createElement('div'); role.className = 'dialog-role'; role.textContent = '↳ ' + project.role; body.append(role);
   }
+  body.append(projectFacts(project.details.facts));
   if (project.media) {
     const media = project.media;
     const figure = document.createElement('figure');
@@ -339,19 +370,14 @@ function openProject(id, trigger) {
     figure.append(link, caption);
     body.append(figure);
   }
-  body.append(section('해결할 문제', paragraph(project.purpose)));
-  if (project.details) {
-    body.append(section('시스템 구성과 실행 환경', projectFacts(project.details.facts)));
-    body.append(section('단계별 개발 과정', developmentSteps(project.details.steps)));
+  body.append(section('문제와 기술 선택', paragraph(project.purpose)));
+  body.append(section('직접 구현한 내용', developmentSteps(project.details.steps)));
+  if (project.details.comparison) {
+    body.append(section(project.details.comparison.title, comparisonTable(project.details.comparison)));
   } else {
-    body.append(section('접근 방법', paragraph(project.approach)));
-    const list = document.createElement('ul');
-    project.contributions.forEach(text => { const li = document.createElement('li'); li.textContent = text; list.append(li); });
-    body.append(section('직접 담당한 일', list));
+    body.append(section('구현 결과', paragraph(project.result)));
   }
-  body.append(section('구현 결과', paragraph(project.result)));
-  if (project.details) body.append(section('검증 항목과 진행 상태', verificationTable(project.details.checks)));
-  body.append(section('검증 범위와 남은 과제', paragraph(project.validation)));
+  body.append(section('검증 범위와 한계', paragraph(project.validation)));
   const chips = document.createElement('div'); chips.className = 'chips';
   project.technologies.forEach(text => { const chip = document.createElement('span'); chip.textContent = text; chips.append(chip); });
   body.append(section('사용 기술', chips));

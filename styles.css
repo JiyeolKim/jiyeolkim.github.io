@@ -166,3 +166,160 @@
 @media print{.development-steps>li,.firmware-detail{break-inside:avoid}.app-development dd,.firmware-detail p{color:#333}.verification-table{min-width:0}.check-status,.check-status.is-pending{color:#333;background:none}}
 
 .experience-body.broad-experience{display:block;max-width:900px}.broad-experience p{line-height:1.95}
+
+/* Content readability and project evidence — October 2026 */
+:root { --muted:#52614f; }
+.hero-description { font-size:16px; }
+.hero-meta span { font-size:12px; }
+.section-heading>p,.skills-intro>p,.contact-section p { font-size:15px; }
+.about-copy p { font-size:16px; line-height:1.9; }
+.career-direction { font-size:14px; }
+.career-section { display:grid; grid-template-columns:1fr 1.5fr; gap:80px; padding:10px 0 58px; }
+.career-heading .eyebrow { color:#5b7051; margin-bottom:12px; }
+.career-heading h2 { font-size:25px; letter-spacing:-.04em; }
+.career-heading p { max-width:300px; font-size:15px; color:var(--muted); margin-top:12px; }
+.career-timeline { list-style:none; margin:0; padding:0 0 0 23px; border-left:1px solid #c8d3c0; }
+.career-timeline li { position:relative; padding:0 0 24px; }
+.career-timeline li:last-child { padding-bottom:0; }
+.career-timeline li:before { content:''; position:absolute; top:8px; left:-28px; width:9px; height:9px; background:#6f8b53; border-radius:50%; box-shadow:0 0 0 5px var(--bg); }
+.career-period { font-size:12px; color:#586d4d; font-family:Arial,sans-serif; letter-spacing:.02em; }
+.career-timeline h3 { font-size:18px; margin:6px 0; }
+.career-timeline h3 span { display:inline-block; font-size:13px; font-weight:400; color:var(--muted); margin-left:8px; }
+.career-timeline p { font-size:15px; color:var(--muted); line-height:1.85; }
+.project-summary dd { font-size:15px; line-height:1.85; }
+.project-summary dt { font-size:12px; }
+.featured-copy .project-summary dd { color:#e1e8db; }
+.featured-copy { padding:36px; }
+.project-meta,.featured-copy>.project-meta,.card-content>.project-meta { font-size:13px; line-height:1.7; margin:12px 0 0; min-height:0; color:#52664b; }
+.featured-copy>.project-meta { color:#c4d3b8; }
+.ownership { font-size:13px; }
+.chips>span { font-size:11px; }
+.project-link { font-size:14px; min-height:44px; }
+.project-media figcaption,.featured-media figcaption,.detail-media figcaption { font-size:13px; }
+.media-label { font-size:11px; }
+.card-media figcaption { min-height:0; padding-bottom:18px; }
+.result-highlight { margin-top:22px; padding-top:20px; border-top:1px solid #53684a; }
+.result-highlight strong { display:block; font-family:Arial,var(--font); font-size:31px; color:#d5ed9c; line-height:1.4; }
+.result-highlight strong span { font-size:15px; font-weight:500; margin-left:8px; }
+.result-highlight p { margin-top:9px; font-size:13px; line-height:1.8; color:#d3ddca; }
+.experience-item summary h3 { font-size:20px; }
+.experience-item summary p { font-size:14px; }
+.experience-body { font-size:15px; color:var(--muted); gap:28px; }
+.app-description { font-size:15px; min-height:0; }
+.app-development dt { font-size:12px; }
+.app-development dd { font-size:14px; }
+.app-development>div { grid-template-columns:62px 1fr; }
+.app-source,.app-release,.app-shot figcaption { font-size:12px; }
+.app-status { font-size:10px; }
+.firmware-detail { grid-template-columns:1fr; gap:10px; }
+.firmware-detail h4,.firmware-detail h4:nth-of-type(2) { font-size:16px; grid-column:auto; grid-row:auto; margin-top:12px; }
+.firmware-detail p { font-size:15px; line-height:1.85; }
+.firmware-node strong { font-size:14px; }
+.firmware-node small,.firmware-overview>p { font-size:12px; }
+.patent-card { border:1px solid #c9d5bf; border-radius:18px; background:#edf2e5; padding:30px; margin-top:32px; }
+.patent-heading { display:flex; align-items:center; gap:15px; flex-wrap:wrap; color:#3b5c31; }
+.patent-badge { font-size:12px; border:1px solid #b9c9ac; border-radius:5px; padding:4px 8px; }
+.patent-card h3 { font-size:22px; line-height:1.6; margin:16px 0 20px; max-width:800px; }
+.patent-facts { display:grid; grid-template-columns:1fr 1fr 1.6fr; gap:22px; margin:0; }
+.patent-facts dt { font-size:12px; color:#526748; margin-bottom:5px; }
+.patent-facts dd { margin:0; font-size:15px; }
+.supporting-title { font-size:16px; }
+.supporting-experience p { font-size:14px; }
+.skill-group h3 { font-size:16px; }
+.skill-group p { font-size:14px; }
+.skill-context { font-size:13px; }
+.skill-links button,.skill-links a { font-size:13px; min-height:44px; }
+.skills-layout { grid-template-columns:.8fr 1.3fr; gap:55px; }
+.skill-group:last-child { grid-column:1 / -1; }
+dialog { width:min(900px,calc(100% - 48px)); }
+.dialog-content { padding:32px 38px; }
+.dialog-intro { font-size:16px; color:var(--muted); }
+.dialog-role { font-size:12px; }
+.project-facts { margin-top:23px; }
+.project-facts dt { font-size:12px; }
+.project-facts dd { font-size:15px; }
+.detail-section { margin-top:32px; }
+.detail-section h3 { font-size:19px; }
+.detail-section p,.detail-section ul { font-size:15px; line-height:1.9; color:var(--muted); }
+.development-steps h4 { font-size:16px; }
+.development-steps p { font-size:15px; }
+.verification-table { font-size:14px; }
+.verification-table caption { font-size:13px; }
+.verification-table thead th { font-size:13px; }
+.comparison-table tbody th { width:37%; }
+.comparison-table th:last-child,.comparison-table td:last-child { width:auto; }
+.comparison-table tr:last-child { background:#edf3e5; }
+.detail-section .comparison-note { font-size:13px; margin-top:12px; }
+.reference-links a { font-size:14px; }
+.dialog-done { font-size:14px; min-height:44px; }
+@media(max-width:1050px) {
+  .career-section { gap:45px; }
+  .featured-copy { padding:28px; }
+  .project-summary dd { font-size:15px; }
+  .skills-layout { gap:32px; }
+}
+@media(max-width:800px) {
+  .career-section { grid-template-columns:1fr; gap:28px; }
+  .career-heading p { max-width:none; }
+  .featured-project { grid-template-columns:1fr; }
+  .featured-media { margin:0 24px 24px; padding:20px; }
+  .featured-media .media-frame { max-width:650px; width:100%; margin:auto; }
+  .patent-facts { grid-template-columns:1fr 1fr; }
+  .patent-facts>div:last-child { grid-column:1 / -1; }
+  .experience-body { grid-template-columns:1fr; }
+}
+@media(max-width:620px) {
+  .hero-description,.about-copy p { font-size:15px; }
+  .hero-meta { gap:22px; }
+  .hero-meta span { font-size:11px; }
+  .section-heading>p,.contact-section p { font-size:14px; }
+  .career-section { padding-bottom:40px; }
+  .career-timeline h3 span { display:block; margin:4px 0 0; }
+  .career-timeline p { font-size:14px; }
+  .project-summary dd { font-size:15px; }
+  .project-summary>div { grid-template-columns:30px 1fr; }
+  .featured-copy { padding:26px 22px; }
+  .featured-media { margin:0 16px 16px; padding:15px; }
+  .featured-copy h3 { font-size:27px; }
+  .card-content { padding:24px 22px; }
+  .card-content h3 { font-size:24px; }
+  .project-meta,.featured-copy>.project-meta,.card-content>.project-meta { font-size:12px; }
+  .result-highlight strong { font-size:28px; }
+  .result-highlight strong span { font-size:14px; }
+  .experience-item summary { gap:12px; }
+  .experience-item summary h3 { font-size:18px; }
+  .experience-item summary p { font-size:13px; }
+  .experience-body { padding:0 0 25px; font-size:15px; }
+  .app-description { font-size:15px; }
+  .app-development dd { font-size:14px; }
+  .app-development dt { font-size:12px; }
+  .app-development>div { grid-template-columns:57px 1fr; }
+  .app-source,.app-release,.app-shot figcaption { font-size:12px; }
+  .app-status { font-size:9px; }
+  .app-shot .media-zoom { min-height:38px; font-size:10px; }
+  .patent-card { padding:22px; }
+  .patent-card h3 { font-size:20px; }
+  .patent-facts { grid-template-columns:1fr; gap:16px; }
+  .patent-facts dd { font-size:14px; }
+  .supporting-title { font-size:15px; }
+  .supporting-experience p { font-size:14px; }
+  .skill-context { font-size:13px; }
+  dialog { width:calc(100% - 20px); max-height:93dvh; }
+  .dialog-content { padding:26px 22px; }
+  .dialog-content h2 { font-size:25px; }
+  .dialog-intro { font-size:15px; }
+  .project-facts { grid-template-columns:1fr; }
+  .project-facts dd { font-size:14px; }
+  .development-steps>li { padding:18px 16px 18px 43px; }
+  .development-steps h4 { font-size:15px; }
+  .development-steps p,.detail-section p,.detail-section ul { font-size:15px; }
+  .comparison-table { min-width:0; font-size:13px; }
+  .verification-table th,.verification-table td { padding:12px 10px; }
+  .comparison-table th:last-child,.comparison-table td:last-child { width:auto; }
+  .comparison-table tbody th { width:37%; }
+}
+@media print {
+  .career-section { gap:25px; padding-bottom:25px; }
+  .career-timeline li,.patent-card { break-inside:avoid; }
+  .result-highlight strong,.result-highlight p { color:#222; }
+}
