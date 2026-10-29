@@ -238,30 +238,34 @@ const projects = {
   }
 };
 
+const i18n = window.portfolioI18n;
+const t = i18n.t;
+
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#main-nav');
 function closeMenu() {
   menuToggle.setAttribute('aria-expanded', 'false');
-  menuToggle.setAttribute('aria-label', '메뉴 열기');
+  menuToggle.setAttribute('aria-label', t('메뉴 열기'));
   nav.classList.remove('is-open');
 }
 menuToggle.addEventListener('click', () => {
   const expanded = menuToggle.getAttribute('aria-expanded') !== 'true';
   menuToggle.setAttribute('aria-expanded', String(expanded));
-  menuToggle.setAttribute('aria-label', expanded ? '메뉴 닫기' : '메뉴 열기');
+  menuToggle.setAttribute('aria-label', t(expanded ? '메뉴 닫기' : '메뉴 열기'));
   nav.classList.toggle('is-open', expanded);
 });
 nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
-window.addEventListener('resize', () => { if (window.innerWidth > 620) closeMenu(); });
+window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
 
 const dialog = document.querySelector('#project-dialog');
 let lastProjectButton = null;
+let activeProjectId = null;
 function section(title, contents) {
   const el = document.createElement('section');
   el.className = 'detail-section';
   const heading = document.createElement('h3');
-  heading.textContent = title;
+  heading.textContent = t(title);
   el.append(heading, contents);
   return el;
 }
@@ -327,8 +331,9 @@ function comparisonTable(data) {
   return wrapper;
 }
 function openProject(id, trigger) {
-  const project = projects[id];
-  if (!project) return;
+  if (!projects[id]) return;
+  const project = i18n.translateTree(projects[id]);
+  activeProjectId = id;
   lastProjectButton = trigger;
   document.querySelector('#dialog-title').textContent = project.title;
   document.querySelector('#dialog-category').textContent = project.category;
@@ -348,7 +353,7 @@ function openProject(id, trigger) {
     link.href = media.src;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.setAttribute('aria-label', media.label + ' 이미지 원본 크게 보기');
+    link.setAttribute('aria-label', t('원본 이미지 크게 보기') + ': ' + media.label);
     const img = document.createElement('img');
     img.src = media.src;
     img.alt = media.alt;
@@ -357,7 +362,7 @@ function openProject(id, trigger) {
     img.decoding = 'async';
     const zoom = document.createElement('span');
     zoom.className = 'media-zoom';
-    zoom.textContent = '크게 보기 ↗';
+    zoom.textContent = t('크게 보기 ↗');
     zoom.setAttribute('aria-hidden', 'true');
     link.append(img, zoom);
     const caption = document.createElement('figcaption');
@@ -386,7 +391,7 @@ function openProject(id, trigger) {
     project.references.forEach(([text, href]) => { const a = document.createElement('a'); a.textContent = text + ' ↗'; a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; references.append(a); });
     body.append(section('참고 자료', references));
   }
-  dialog.showModal();
+  if (!dialog.open) dialog.showModal();
   dialog.scrollTop = 0;
   document.body.classList.add('modal-open');
   document.querySelector('.dialog-close').focus({preventScroll:true});
@@ -394,7 +399,7 @@ function openProject(id, trigger) {
 document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => openProject(button.dataset.project, button)));
 document.querySelectorAll('.dialog-close,.dialog-done').forEach(button => button.addEventListener('click', () => dialog.close()));
 dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
-dialog.addEventListener('close', () => { document.body.classList.remove('modal-open'); if (lastProjectButton) lastProjectButton.focus({preventScroll:true}); });
+dialog.addEventListener('close', () => { activeProjectId = null; document.body.classList.remove('modal-open'); if (lastProjectButton) lastProjectButton.focus({preventScroll:true}); });
 
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
@@ -414,4 +419,13 @@ document.querySelectorAll('.skill-links a[href^="#"]').forEach(link => {
     const target = document.querySelector(link.getAttribute('href'));
     if (target && target.tagName === 'DETAILS') target.open = true;
   });
+});
+
+window.addEventListener('portfolio:languagechange', () => {
+  closeMenu();
+  if (dialog.open && activeProjectId) {
+    const scrollPosition = dialog.scrollTop;
+    openProject(activeProjectId, lastProjectButton);
+    dialog.scrollTop = scrollPosition;
+  }
 });
