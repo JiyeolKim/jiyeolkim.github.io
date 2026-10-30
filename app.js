@@ -1,6 +1,126 @@
 'use strict';
 
 const projects = {
+  "medieye": {
+    "category": "01 / DEVICE SOFTWARE",
+    "title": "MEDI-EYE 기기 제어 및 BLE·Android 연동",
+    "intro": "MEDI-EYE 의료기기의 MCU 펌웨어와 Android 제어 앱을 개발했습니다. 앱과 기기의 BLE 연동부터 LED·타이머·절전 제어, 카메라 전원 안정화와 대기전류 점검까지 제품의 동작 흐름을 함께 다뤘습니다.",
+    "role": "펌웨어·앱·연동 테스트 담당 · 하드웨어 개발자와 협업",
+    "purpose": "앱에서 전달한 명령이 LED 제어와 동작 종료까지 이어지고, 버튼 입력과 절전·재기동도 함께 처리되어야 했습니다. 기능 구현뿐 아니라 카메라 구동 중 멈춤과 대기 상태의 전력 소모를 개선하는 작업도 맡았습니다.",
+    "details": {
+      "facts": [
+        [
+          "소속",
+          "메디아이오티"
+        ],
+        [
+          "담당 범위",
+          "MCU 펌웨어 · Android 앱 · BLE 연동 · 동작 테스트"
+        ],
+        [
+          "대상 보드",
+          "nRF52840 제어 보드 · ESP32 카메라 보드"
+        ],
+        [
+          "협업 범위",
+          "하드웨어 개발자와 기능·구현 방향 조율"
+        ]
+      ],
+      "system": {
+        "title": "시스템 구성과 개발 범위",
+        "nodes": [
+          [
+            "Android",
+            "기기 연결·조작"
+          ],
+          [
+            "BLE",
+            "제어 명령 전달"
+          ],
+          [
+            "nRF52840",
+            "명령·버튼 입력 처리"
+          ]
+        ],
+        "outputs": "LED·PWM 제어 → 타이머 기반 종료 → 절전·재기동",
+        "camera": "ESP32 카메라 보드: 입력 전원 안정화와 대기전류 점검",
+        "note": "직접 담당한 연결 관계와 보드별 개선 범위를 요약했습니다. 상세 회로도나 통신 사양은 포함하지 않았습니다."
+      },
+      "cases": [
+        {
+          "title": "기기 제어 — 명령 수신부터 종료·절전까지",
+          "items": [
+            [
+              "요구사항",
+              "앱의 조사 조작과 기기의 버튼 입력을 LED 동작, 타이머, 종료 상태로 연결해야 했습니다."
+            ],
+            [
+              "구현",
+              "nRF52840에서 BLE 명령과 버튼 입력을 받아 LED·PWM을 제어했습니다. 2분 동작 종료, 절전·재기동과 watchdog 처리를 구현했습니다."
+            ],
+            [
+              "연동 확인",
+              "Android 앱의 기기 연결·조작 기능과 펌웨어를 함께 개발하고, 앱 조작이 실제 기기 동작으로 이어지는지 테스트했습니다."
+            ]
+          ]
+        },
+        {
+          "title": "카메라 멈춤 — 입력 전원 안정화",
+          "items": [
+            [
+              "발생 현상",
+              "ESP32 카메라 보드를 구동하는 중 멈춤 현상이 발생했습니다."
+            ],
+            [
+              "원인·조치",
+              "입력 전원이 떨어지는 문제를 원인으로 확인했습니다. 전원을 일정하게 유지하는 회로를 추가해 카메라 구동 중 전원 불안정을 개선했습니다."
+            ],
+            [
+              "확인 결과",
+              "전원 안정화 회로를 추가해 카메라 구동 중 발생하던 멈춤 문제를 해결했습니다."
+            ]
+          ]
+        },
+        {
+          "title": "대기전류 — GPIO 상태와 불필요한 소모 점검",
+          "items": [
+            [
+              "점검 대상",
+              "대기 상태에서도 불필요하게 소모되는 전력을 줄이는 것이 목표였습니다."
+            ],
+            [
+              "점검·변경",
+              "대기전류를 측정하면서 각 GPIO의 상태를 점검·조정했습니다. 핀 상태와 전력 소모를 함께 확인하며 불필요한 소비를 줄였습니다."
+            ],
+            [
+              "결과 범위",
+              "GPIO 상태 조정으로 불필요한 대기 전력 소모를 줄였습니다. 기능 구현 이후에도 기기의 실제 전력 소모를 측정하며 동작 상태를 점검했습니다."
+            ]
+          ]
+        }
+      ]
+    },
+    "media": {
+      "src": "assets/medieye-device-control.jpg",
+      "width": 945,
+      "height": 2048,
+      "alt": "MEDI-EYE 앱의 조사하기, 블루투스 기기 연결, 환자관리, 조사 로그 및 옵션 메뉴",
+      "label": "기기 제어 앱",
+      "caption": "직접 개발한 Android 제어 앱입니다. BLE 기기 연결과 조사 조작, 로그·옵션 메뉴를 구성했습니다.",
+      "layout": "portrait"
+    },
+    "result": "Android–BLE–MCU 제어 흐름을 구현하고 실기기 연동을 테스트했습니다. ESP32 카메라 멈춤은 전원 안정화 회로 추가로 해결했으며, 대기전류 측정과 GPIO 조정으로 불필요한 전력 소모를 줄였습니다.",
+    "validation": "앱·펌웨어 기능 구현과 실기기 연동 테스트는 직접 수행했고, 기능과 구현 방향은 하드웨어 개발자와 조율했습니다. 카메라 멈춤 개선과 대기전력 감소는 확인한 동작 결과로 제시하며, 연속 구동 시간·전류 감소량·배터리 수명의 정량 수치는 포함하지 않았습니다.",
+    "technologies": [
+      "C",
+      "nRF52840",
+      "Nordic SDK",
+      "BLE",
+      "PWM",
+      "ESP32",
+      "Android"
+    ]
+  },
   "vehicle": {
     "details": {
       "facts": [
@@ -59,7 +179,7 @@ const projects = {
         "note": "기존 QD-3DT 대비 약 77% 단축했습니다. 프로젝트 발표 자료에 기록된 측정값이며, SMOKE 단독 구성에는 추적 단계가 포함되지 않습니다."
       }
     },
-    "category": "01 / COMPUTER VISION",
+    "category": "02 / COMPUTER VISION",
     "media": {
       "src": "assets/vehicle-ir-result.jpg",
       "width": 960,
@@ -127,7 +247,7 @@ const projects = {
         ]
       ]
     },
-    "category": "03 / VISION APPLICATION",
+    "category": "04 / VISION APPLICATION",
     "media": {
       "src": "assets/eye-training-batch.jpg",
       "width": 768,
@@ -212,7 +332,7 @@ const projects = {
         "note": "모델별 실험 결과와 Android 실행 확인은 구분해 평가했습니다. 서버 환경에서의 실행 결과를 모바일 성능으로 간주하지 않습니다."
       }
     },
-    "category": "02 / BIOSIGNAL AI",
+    "category": "03 / BIOSIGNAL AI",
     "media": {
       "src": "assets/rppg-model-demo.png",
       "width": 1920,
@@ -330,6 +450,37 @@ function comparisonTable(data) {
   const note = paragraph(data.note); note.className = 'comparison-note'; wrapper.append(note);
   return wrapper;
 }
+function systemOverview(data) {
+  const wrapper = document.createElement('div'); wrapper.className = 'system-overview';
+  const flow = document.createElement('ol'); flow.className = 'system-nodes';
+  data.nodes.forEach(([name, detail]) => {
+    const node = document.createElement('li');
+    const heading = document.createElement('strong'); heading.textContent = name;
+    node.append(heading, paragraph(detail)); flow.append(node);
+  });
+  const outputs = paragraph(data.outputs); outputs.className = 'system-outputs';
+  const camera = paragraph(data.camera); camera.className = 'system-camera';
+  const note = paragraph(data.note); note.className = 'system-note';
+  wrapper.append(flow, outputs, camera, note);
+  return wrapper;
+}
+function technicalCases(cases) {
+  const wrapper = document.createElement('div'); wrapper.className = 'technical-cases';
+  cases.forEach((item, index) => {
+    const card = document.createElement('article'); card.className = 'technical-case';
+    const label = document.createElement('span'); label.className = 'case-number'; label.textContent = `CASE 0${index + 1}`;
+    const title = document.createElement('h4'); title.textContent = item.title;
+    const facts = document.createElement('dl');
+    item.items.forEach(([name, description]) => {
+      const row = document.createElement('div');
+      const dt = document.createElement('dt'); dt.textContent = name;
+      const dd = document.createElement('dd'); dd.textContent = description;
+      row.append(dt, dd); facts.append(row);
+    });
+    card.append(label, title, facts); wrapper.append(card);
+  });
+  return wrapper;
+}
 function openProject(id, trigger) {
   if (!projects[id]) return;
   const project = i18n.translateTree(projects[id]);
@@ -347,7 +498,7 @@ function openProject(id, trigger) {
   if (project.media) {
     const media = project.media;
     const figure = document.createElement('figure');
-    figure.className = 'project-media detail-media';
+    figure.className = 'project-media detail-media' + (media.layout === 'portrait' ? ' detail-portrait' : '');
     const link = document.createElement('a');
     link.className = 'media-frame';
     link.href = media.src;
@@ -376,7 +527,9 @@ function openProject(id, trigger) {
     body.append(figure);
   }
   body.append(section('문제와 기술 선택', paragraph(project.purpose)));
-  body.append(section('직접 구현한 내용', developmentSteps(project.details.steps)));
+  if (project.details.system) body.append(section(project.details.system.title, systemOverview(project.details.system)));
+  if (project.details.cases) body.append(section('기술 사례', technicalCases(project.details.cases)));
+  if (project.details.steps) body.append(section('직접 구현한 내용', developmentSteps(project.details.steps)));
   if (project.details.comparison) {
     body.append(section(project.details.comparison.title, comparisonTable(project.details.comparison)));
   } else {

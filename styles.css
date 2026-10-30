@@ -404,3 +404,133 @@ html[lang="en"] .contact-section h2 { font-size:30px; }
 @media(max-width:620px) {
   .skills-grid { grid-template-columns:1fr; gap:24px; }
 }
+
+/* Two equal areas of practice: vision AI and connected device software. */
+.hero { grid-template-columns:1.08fr 1fr; gap:44px; padding-top:65px; padding-bottom:68px; }
+.hero h1 { font-size:clamp(39px,4.2vw,56px); line-height:1.3; }
+.hero-description { line-height:1.9; max-width:520px; }
+.hero-actions { gap:12px; }
+.hero-actions .button { font-size:13px; padding:14px 17px; min-height:50px; gap:16px; }
+.button-secondary { border:1px solid #acbda2; color:#294b3a; background:transparent; }
+.button-secondary:hover { background:#e7eedf; }
+.hero-meta { gap:22px; max-width:none; }
+.hero-meta>div { flex:1; min-width:0; }
+.hero-meta span { line-height:1.65; }
+.engineering-visual { border:1px solid #d5dfcd; border-radius:26px; padding:27px; background:#edf1e6; min-width:0; }
+.engineering-topline { display:flex; justify-content:space-between; gap:16px; color:#61764e; font:10px Arial,sans-serif; letter-spacing:.1em; margin-bottom:28px; }
+.engineering-track { padding:23px; border:1px solid #d4dfc7; border-radius:16px; background:#f8faf3; }
+.track-heading>span { display:block; font:10px Arial,sans-serif; letter-spacing:.08em; color:#5a7246; }
+.track-heading>strong { display:block; font-size:18px; font-weight:500; line-height:1.6; margin-top:8px; }
+.track-nodes { display:grid; grid-template-columns:minmax(0,1fr) 12px minmax(0,1fr) 12px minmax(0,1fr); align-items:center; gap:6px; margin-top:22px; }
+.track-nodes>div { min-width:0; }
+.track-nodes small { display:block; font:9px Arial,sans-serif; color:#70815d; letter-spacing:.06em; margin-bottom:8px; }
+.track-nodes strong { display:block; font-size:12px; line-height:1.6; }
+.track-nodes>span { font-size:12px; color:#7d916b; }
+.device-track { background:#294536; border-color:#294536; color:#f4f7ee; margin-top:14px; }
+.device-track .track-heading>span,.device-track .track-nodes small,.device-track .track-nodes>span { color:#c8d9ad; }
+.device-track>p { padding-top:15px; margin-top:16px; border-top:1px solid #536b48; font-size:12px; color:#dbe6cb; line-height:1.7; }
+.engineering-caption { margin-top:23px; }
+.engineering-caption>span { font-size:12px; color:#60764e; }
+.engineering-caption>p { font-size:14px; line-height:1.7; margin-top:4px; }
+.project-paths { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:24px; }
+.project-paths a { display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:15px 18px; border:1px solid #cbd7bf; border-radius:10px; font-size:14px; }
+.project-paths a:hover { background:#e8efdf; }
+.project-paths a>span:first-child { font:10px Arial,sans-serif; letter-spacing:.06em; color:#5b754a; }
+.project-paths a>span:last-child { margin-left:auto; }
+.featured-project+.featured-project { margin-top:24px; }
+.medieye-project { background:#e7eedf; border:1px solid #c9d7bd; color:#223c2f; }
+.medieye-project .project-kicker,.medieye-project .project-meta { color:#526b42; }
+.medieye-project .project-summary dt { color:#48613b; }
+.medieye-project .project-summary dd { color:#344e2f; }
+.medieye-project .ownership { color:#416133; align-items:flex-start; line-height:1.8; }
+.medieye-project .chips>span { color:#3b5831; border-color:#b8c9a9; }
+.medieye-project .project-link { color:#244331; }
+.medieye-project .round-arrow { border-color:#9fb58c; }
+.device-media { background:#d5e1c9; padding:25px; }
+.device-media-label { display:flex; justify-content:space-between; gap:12px; font:9px Arial,sans-serif; color:#4f6940; letter-spacing:.07em; margin-bottom:20px; }
+.device-media .media-frame { width:192px; max-width:100%; align-self:center; background:#fff; border-color:#afc39f; border-radius:16px; box-shadow:0 14px 30px #243d2914; }
+.device-media figcaption { color:#415a35; }
+.device-media .media-label { color:#3d5a2f; border-color:#a8bc96; }
+.detail-portrait .media-frame { max-width:250px; margin-inline:auto; }
+.detail-portrait figcaption { max-width:590px; margin-inline:auto; }
+.system-overview { padding:23px; border:1px solid #cbd9c0; border-radius:14px; background:#eef3e8; }
+.system-nodes { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); list-style:none; padding:0; margin:0; gap:12px; }
+.system-nodes li { position:relative; padding:14px 12px; background:#fff; border:1px solid #c8d8bc; border-radius:8px; min-width:0; }
+.system-nodes li+li:before { content:'→'; position:absolute; left:-13px; top:17px; color:#52713d; font-size:13px; }
+.system-nodes strong { display:block; font-size:15px; }
+.detail-section .system-nodes p { font-size:12px; margin-top:4px; line-height:1.7; }
+.detail-section .system-outputs { margin-top:14px; padding:13px 15px; background:#2b4936; border-radius:8px; color:#eaf2dc; font-size:14px; }
+.detail-section .system-camera { margin-top:18px; padding-top:17px; border-top:1px solid #cad7be; font-size:14px; }
+.detail-section .system-note { margin-top:12px; font-size:12px; color:#5f7450; }
+.technical-cases { display:grid; gap:20px; }
+.technical-case { padding:24px; border:1px solid #cdd9c3; border-radius:14px; background:#f5f8f0; }
+.case-number { font:10px Arial,sans-serif; letter-spacing:.1em; color:#607f48; }
+.technical-case h4 { font-size:18px; line-height:1.6; margin:9px 0 20px; }
+.technical-case dl { margin:0; display:grid; gap:16px; }
+.technical-case dl>div { display:grid; grid-template-columns:80px minmax(0,1fr); gap:16px; }
+.technical-case dt { font-size:12px; font-weight:600; color:#567140; line-height:1.9; }
+.technical-case dd { margin:0; font-size:15px; color:var(--muted); line-height:1.9; }
+.agingloc-layout { grid-template-columns:1fr; }
+.agingloc-layout .app-showcase { display:grid; grid-template-columns:1.1fr 1fr; column-gap:40px; }
+.agingloc-layout .app-heading,.agingloc-layout .app-description,.agingloc-layout .app-development { grid-column:1; }
+.agingloc-layout .app-screenshots { grid-column:2; grid-row:1 / 5; margin:0; width:100%; max-width:360px; justify-self:center; align-self:center; }
+.agingloc-layout .app-release { grid-column:1; flex-wrap:wrap; }
+.related-project { display:flex; align-items:center; gap:28px; padding:20px 4px 0; }
+.related-project p { font-size:14px; }
+.related-project .project-link { width:auto; min-width:210px; padding:0; font-size:13px; }
+html[lang="en"] .hero h1 { font-size:clamp(36px,4vw,53px); line-height:1.2; }
+html[lang="en"] .hero-actions { gap:12px; }
+html[lang="en"] .technical-case dl>div { grid-template-columns:100px minmax(0,1fr); }
+@media(max-width:1050px) {
+  .hero { gap:28px; }
+  .engineering-visual { padding:20px; }
+  .engineering-track { padding:19px; }
+  .track-heading>strong { font-size:17px; }
+}
+@media(max-width:800px) {
+  .hero { grid-template-columns:1fr; }
+  .hero-description { max-width:620px; }
+  .hero-meta { max-width:530px; }
+  .engineering-visual { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .engineering-topline,.engineering-caption { grid-column:1 / -1; margin:0; }
+  .device-track { margin-top:0; }
+  .engineering-caption { padding-top:5px; }
+  .device-media .media-frame { width:200px; }
+  .agingloc-layout .app-showcase { grid-template-columns:1fr; }
+  .agingloc-layout .app-screenshots { grid-column:1; grid-row:auto; margin-top:24px; max-width:360px; }
+  .agingloc-layout .app-release { grid-row:5; }
+  .related-project { flex-direction:column; align-items:flex-start; gap:12px; }
+}
+@media(max-width:620px) {
+  .hero { padding-top:38px; padding-bottom:42px; gap:30px; }
+  .hero h1 { font-size:clamp(30px,8.7vw,43px); line-height:1.35; }
+  .hero-name { font-size:18px; }
+  .hero-actions { flex-direction:column; align-items:stretch; }
+  .hero-actions .button { justify-content:space-between; }
+  .hero-meta { gap:14px; margin-top:26px; }
+  .hero-meta strong { font-size:14px; white-space:nowrap; }
+  .hero-meta span { font-size:11px; }
+  .engineering-visual { display:block; border-radius:20px; padding:20px; }
+  .engineering-topline { margin-bottom:18px; font-size:9px; }
+  .engineering-track { padding:18px; }
+  .track-heading>strong { font-size:17px; }
+  .track-nodes { margin-top:18px; }
+  .track-nodes strong { font-size:11px; }
+  .device-track { margin-top:12px; }
+  .engineering-caption { margin-top:18px; }
+  .project-paths { grid-template-columns:1fr; gap:10px; }
+  .project-paths a { font-size:13px; }
+  .device-media-label { font-size:8px; }
+  .system-overview { padding:16px; }
+  .system-nodes { grid-template-columns:1fr; gap:18px; }
+  .system-nodes li+li:before { content:'↓'; left:18px; top:-20px; }
+  .technical-case { padding:20px 17px; }
+  .technical-case h4 { font-size:17px; }
+  .technical-case dl>div,html[lang="en"] .technical-case dl>div { grid-template-columns:1fr; gap:3px; }
+  html[lang="en"] .hero h1 { font-size:clamp(30px,9vw,43px); }
+  .agingloc-layout .app-screenshots { gap:12px; }
+}
+@media print {
+  .engineering-visual,.project-paths,.related-project { display:none; }
+  .medieye-project { background:white; }
+}
